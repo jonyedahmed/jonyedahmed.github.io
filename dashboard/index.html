@@ -1,5 +1,7 @@
 from pathlib import Path
 
+# Use the user's dashboard code, with the dark-theme visibility issue fixed
+# and a few integration improvements for the existing portfolio website.
 html = r'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +9,31 @@ html = r'''<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>SEO Command Center | Jonayed Ahmed</title>
+
 <style>
-:root{--bg:#f5f7fb;--card:#fff;--text:#0f172a;--muted:#64748b;--line:#e2e8f0;--primary:#0284c7;--primary2:#0369a1;--sidebar:#0b1220;--sidebarText:#cbd5e1;--good:#16a34a;--warn:#d97706;--bad:#dc2626;--shadow:0 10px 30px rgba(15,23,42,.07)}
+:root{
+ --bg:#f5f7fb;--card:#fff;--text:#0f172a;--muted:#64748b;--line:#e2e8f0;
+ --primary:#0284c7;--primary2:#0369a1;--sidebar:#0b1220;--sidebarText:#cbd5e1;
+ --good:#16a34a;--warn:#d97706;--bad:#dc2626;--shadow:0 10px 30px rgba(15,23,42,.07);
+ --topbar:#ffffff;
+ --soft:#f8fafc;
+}
+body.dark{
+ --bg:#080d18;--card:#111827;--text:#f8fafc;--muted:#94a3b8;--line:#263244;
+ --topbar:#0f172a;--soft:#172033;--shadow:0 10px 30px rgba(0,0,0,.28);
+}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
-button{font:inherit}.app{display:flex;min-height:100vh}
-.sidebar{width:260px;background:var(--sidebar);color:#fff;position:fixed;inset:0 auto 0 0;z-index:20;padding:22px 16px;display:flex;flex-direction:column}
+body{
+ font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+ background:var(--bg);color:var(--text);line-height:1.5;transition:.2s;
+}
+button{font:inherit}
+.app{display:flex;min-height:100vh}
+.sidebar{
+ width:260px;background:var(--sidebar);color:#fff;position:fixed;inset:0 auto 0 0;
+ z-index:20;padding:22px 16px;display:flex;flex-direction:column
+}
 .brand{display:flex;align-items:center;gap:11px;padding:4px 10px 25px;border-bottom:1px solid rgba(255,255,255,.08)}
 .brand-mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,#38bdf8,#0369a1);display:grid;place-items:center;font-weight:800}
 .brand h2{font-size:16px}.brand small{display:block;color:#94a3b8;font-size:11px;margin-top:2px}
@@ -23,26 +43,32 @@ button{font:inherit}.app{display:flex;min-height:100vh}
 .sidebar-bottom{margin-top:auto;border-top:1px solid rgba(255,255,255,.08);padding-top:14px}
 .profile-mini{display:flex;align-items:center;gap:10px;padding:9px}.avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#0f172a);display:grid;place-items:center;font-weight:700;font-size:13px}.profile-mini strong{font-size:12px}.profile-mini span{display:block;color:#94a3b8;font-size:10px}
 .main{margin-left:260px;width:calc(100% - 260px);min-width:0}
-.topbar{height:70px;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 30px;position:sticky;top:0;z-index:10}
-.page-title h1{font-size:20px}.page-title p{font-size:12px;color:var(--muted)}
-.top-actions{display:flex;align-items:center;gap:9px}.icon-btn,.outline-btn{border:1px solid var(--line);background:#fff;color:var(--text);border-radius:9px;padding:9px 12px;cursor:pointer}.icon-btn:hover,.outline-btn:hover{border-color:#bae6fd;background:#f0f9ff}
+.topbar{
+ height:70px;background:var(--topbar);border-bottom:1px solid var(--line);
+ display:flex;align-items:center;justify-content:space-between;padding:0 30px;
+ position:sticky;top:0;z-index:10
+}
+.page-title{display:flex;align-items:center}.page-title h1{font-size:20px;color:var(--text)}.page-title p{font-size:12px;color:var(--muted)}
+.top-actions{display:flex;align-items:center;gap:9px}
+.icon-btn,.outline-btn{border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:9px;padding:9px 12px;cursor:pointer}
+.icon-btn:hover,.outline-btn:hover{border-color:#bae6fd;background:var(--soft)}
 .mobile-menu{display:none}
 .content{padding:28px 30px 45px;max-width:1500px;margin:auto}
-.welcome{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}.welcome h2{font-size:24px}.welcome p{color:var(--muted);font-size:13px;margin-top:3px}
+.welcome{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}.welcome h2{font-size:24px;color:var(--text)}.welcome p{color:var(--muted);font-size:13px;margin-top:3px}
 .primary{background:var(--primary);color:#fff;border:0;border-radius:9px;padding:11px 16px;font-weight:600;cursor:pointer}.primary:hover{background:var(--primary2)}
 .grid{display:grid;gap:18px}.stats{grid-template-columns:repeat(4,1fr)}.two{grid-template-columns:1.5fr 1fr}.three{grid-template-columns:repeat(3,1fr)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);padding:20px}
-.stat{position:relative;overflow:hidden}.stat-top{display:flex;justify-content:space-between;align-items:center}.stat-label{font-size:12px;color:var(--muted);font-weight:600}.stat-icon{width:34px;height:34px;border-radius:9px;background:#e0f2fe;color:var(--primary);display:grid;place-items:center;font-size:15px}.stat-value{font-size:28px;font-weight:800;margin:10px 0 4px}.change{font-size:11px;font-weight:700}.up{color:var(--good)}.down{color:var(--bad)}.muted{color:var(--muted)}
-.section{margin-top:22px}.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}.section-head h3{font-size:16px}.section-head span{font-size:11px;color:var(--muted)}
+.stat{position:relative;overflow:hidden}.stat-top{display:flex;justify-content:space-between;align-items:center}.stat-label{font-size:12px;color:var(--muted);font-weight:600}.stat-icon{width:34px;height:34px;border-radius:9px;background:#e0f2fe;color:var(--primary);display:grid;place-items:center;font-size:15px}.stat-value{font-size:28px;font-weight:800;margin:10px 0 4px;color:var(--text)}.change{font-size:11px;font-weight:700}.up{color:var(--good)}.down{color:var(--bad)}.muted{color:var(--muted)}
+.section{margin-top:22px}.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}.section-head h3{font-size:16px;color:var(--text)}.section-head span{font-size:11px;color:var(--muted)}
 .chart{height:260px;position:relative;display:flex;align-items:end;gap:9px;padding:20px 5px 25px;background:linear-gradient(to bottom,transparent 0 24%,#f1f5f9 25% 25.5%,transparent 25.5% 49%,#f1f5f9 49.5% 50%,transparent 50% 74%,#f1f5f9 74.5% 75%,transparent 75%);border-radius:10px}
-.bar{flex:1;min-width:8px;border-radius:6px 6px 2px 2px;background:linear-gradient(to top,#0369a1,#38bdf8);height:var(--h);position:relative}.bar:hover{filter:brightness(1.08)}.bar:after{content:attr(data-v);position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:9px;color:var(--muted);opacity:0}.bar:hover:after{opacity:1}.chart-labels{position:absolute;bottom:5px;left:8px;right:8px;display:flex;justify-content:space-between;font-size:9px;color:#94a3b8}
+.bar{flex:1;min-width:8px;border-radius:6px 6px 2px 2px;background:linear-gradient(to top,#0369a1,#38bdf8);height:var(--h);position:relative}.bar:after{content:attr(data-v);position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:9px;color:var(--muted);opacity:0}.bar:hover:after{opacity:1}.chart-labels{position:absolute;bottom:5px;left:8px;right:8px;display:flex;justify-content:space-between;font-size:9px;color:#94a3b8}
 .legend{display:flex;gap:15px;font-size:11px;color:var(--muted)}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--primary);margin-right:5px}
 .progress{height:7px;background:#e2e8f0;border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;background:var(--primary);border-radius:99px}
-.kpi-row{display:flex;justify-content:space-between;align-items:end;margin:14px 0}.kpi-row strong{font-size:22px}.kpi-row span{font-size:11px;color:var(--muted)}
-table{width:100%;border-collapse:collapse;font-size:12px}th{text-align:left;color:#64748b;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.04em;background:#f8fafc}th,td{padding:12px;border-bottom:1px solid var(--line)}tbody tr:hover{background:#f8fafc}.tag{display:inline-flex;padding:4px 8px;border-radius:999px;font-size:10px;font-weight:700}.tag.good{background:#dcfce7;color:#166534}.tag.blue{background:#e0f2fe;color:#075985}.tag.orange{background:#ffedd5;color:#9a3412}
-.project{display:flex;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.project:last-child{border-bottom:0}.project-icon{width:38px;height:38px;border-radius:9px;background:#eff6ff;color:#0369a1;display:grid;place-items:center;font-weight:800}.project h4{font-size:12px}.project p{font-size:10px;color:var(--muted)}.project .tag{margin-left:auto}
-.check{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px}.check:last-child{border:0}.check-icon{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:11px}.check.ok .check-icon{background:#dcfce7;color:#166534}.check.warn .check-icon{background:#fef3c7;color:#92400e}
-.empty{padding:28px;text-align:center;color:var(--muted);font-size:12px}
+.kpi-row{display:flex;justify-content:space-between;align-items:end;margin:14px 0}.kpi-row strong{font-size:22px;color:var(--text)}.kpi-row span{font-size:11px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:12px}th{text-align:left;color:#64748b;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.04em;background:var(--soft)}th,td{padding:12px;border-bottom:1px solid var(--line)}tbody tr:hover{background:var(--soft)}td{color:var(--text)}
+.tag{display:inline-flex;padding:4px 8px;border-radius:999px;font-size:10px;font-weight:700}.tag.good{background:#dcfce7;color:#166534}.tag.blue{background:#e0f2fe;color:#075985}.tag.orange{background:#ffedd5;color:#9a3412}
+.project{display:flex;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.project:last-child{border-bottom:0}.project-icon{width:38px;height:38px;border-radius:9px;background:#eff6ff;color:#0369a1;display:grid;place-items:center;font-weight:800}.project h4{font-size:12px;color:var(--text)}.project p{font-size:10px;color:var(--muted)}.project .tag{margin-left:auto}
+.check{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px;color:var(--text)}.check:last-child{border:0}.check-icon{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:11px}.check.ok .check-icon{background:#dcfce7;color:#166534}.check.warn .check-icon{background:#fef3c7;color:#92400e}
 .footer{padding:22px 0;color:#94a3b8;font-size:11px;text-align:center}
 .toast{position:fixed;right:24px;bottom:24px;background:#0f172a;color:#fff;padding:12px 16px;border-radius:9px;font-size:12px;opacity:0;transform:translateY(12px);pointer-events:none;transition:.25s;z-index:50}.toast.show{opacity:1;transform:translateY(0)}
 @media(max-width:1100px){.stats{grid-template-columns:repeat(2,1fr)}.two,.three{grid-template-columns:1fr}}
@@ -50,10 +76,16 @@ table{width:100%;border-collapse:collapse;font-size:12px}th{text-align:left;colo
 @media(max-width:520px){.stats{grid-template-columns:1fr}.topbar{height:62px}.page-title p{display:none}.stat-value{font-size:25px}.welcome{flex-direction:column}.welcome .primary{width:100%}}
 </style>
 </head>
+
 <body>
 <div class="app">
+
 <aside class="sidebar" id="sidebar">
-  <div class="brand"><div class="brand-mark">JA</div><div><h2>SEO Command Center</h2><small>Jonayed Ahmed</small></div></div>
+  <div class="brand">
+    <div class="brand-mark">JA</div>
+    <div><h2>SEO Command Center</h2><small>Jonayed Ahmed</small></div>
+  </div>
+
   <nav class="nav">
     <div class="nav-title">Workspace</div>
     <a class="active" href="#overview"><span class="icon">▦</span>Overview</a>
@@ -61,43 +93,90 @@ table{width:100%;border-collapse:collapse;font-size:12px}th{text-align:left;colo
     <a href="#analytics"><span class="icon">◔</span>Analytics</a>
     <a href="#keywords"><span class="icon">⌕</span>Keyword Rankings</a>
     <a href="#projects"><span class="icon">▣</span>Projects & Clients</a>
+
     <div class="nav-title" style="margin-top:18px">SEO Management</div>
     <a href="#audit"><span class="icon">✓</span>SEO Audit</a>
     <a href="#reports"><span class="icon">▤</span>Reports</a>
     <a href="#portfolio"><span class="icon">◆</span>Portfolio</a>
     <a href="#leads"><span class="icon">✉</span>Leads</a>
+
     <div class="nav-title" style="margin-top:18px">Account</div>
     <a href="#github"><span class="icon">◉</span>GitHub</a>
     <a href="#profile"><span class="icon">●</span>Profile</a>
     <a href="#settings"><span class="icon">⚙</span>Settings</a>
   </nav>
-  <div class="sidebar-bottom"><div class="profile-mini"><div class="avatar">JA</div><div><strong>Jonayed Ahmed</strong><span>SEO Expert</span></div></div></div>
+
+  <div class="sidebar-bottom">
+    <div class="profile-mini">
+      <div class="avatar">JA</div>
+      <div><strong>Jonayed Ahmed</strong><span>SEO Expert</span></div>
+    </div>
+  </div>
 </aside>
 
 <main class="main">
 <header class="topbar">
-  <div class="page-title"><button class="icon-btn mobile-menu" id="menuBtn">☰</button> <span style="margin-left:8px"><h1>SEO Dashboard</h1><p>Performance & growth command center</p></span></div>
-  <div class="top-actions"><button class="outline-btn" id="siteBtn">↗ View Website</button><button class="icon-btn" id="themeBtn">◐</button><button class="icon-btn" id="refreshBtn">↻</button></div>
+  <div class="page-title">
+    <button class="icon-btn mobile-menu" id="menuBtn">☰</button>
+    <span style="margin-left:8px">
+      <h1>SEO Dashboard</h1>
+      <p>Performance & growth command center</p>
+    </span>
+  </div>
+
+  <div class="top-actions">
+    <button class="outline-btn" id="siteBtn">↗ View Website</button>
+    <button class="icon-btn" id="themeBtn" title="Toggle dark mode">◐</button>
+    <button class="icon-btn" id="refreshBtn" title="Refresh dashboard">↻</button>
+  </div>
 </header>
 
 <div class="content">
+
 <section id="overview">
-  <div class="welcome"><div><h2>Good evening, Jonayed 👋</h2><p>Here’s your SEO performance overview. Connect your data sources to replace demo metrics with live data.</p></div><button class="primary" id="connectBtn">+ Connect Data</button></div>
+  <div class="welcome">
+    <div>
+      <h2>Good evening, Jonayed 👋</h2>
+      <p>Here’s your SEO performance overview. Connect your data sources to replace demo metrics with live data.</p>
+    </div>
+    <button class="primary" id="connectBtn">+ Connect Data</button>
+  </div>
+
   <div class="grid stats">
-    <div class="card stat"><div class="stat-top"><span class="stat-label">Organic Clicks</span><span class="stat-icon">⌁</span></div><div class="stat-value">1,284</div><div class="change up">↑ 18.4% <span class="muted">vs last month</span></div></div>
-    <div class="card stat"><div class="stat-top"><span class="stat-label">Impressions</span><span class="stat-icon">◉</span></div><div class="stat-value">48.7K</div><div class="change up">↑ 12.7% <span class="muted">vs last month</span></div></div>
-    <div class="card stat"><div class="stat-top"><span class="stat-label">Avg. Position</span><span class="stat-icon">#</span></div><div class="stat-value">8.6</div><div class="change up">↑ 2.1 <span class="muted">positions</span></div></div>
-    <div class="card stat"><div class="stat-top"><span class="stat-label">Organic CTR</span><span class="stat-icon">%</span></div><div class="stat-value">4.92%</div><div class="change up">↑ 0.8% <span class="muted">vs last month</span></div></div>
+    <div class="card stat">
+      <div class="stat-top"><span class="stat-label">Organic Clicks</span><span class="stat-icon">⌁</span></div>
+      <div class="stat-value">1,284</div><div class="change up">↑ 18.4% <span class="muted">vs last month</span></div>
+    </div>
+    <div class="card stat">
+      <div class="stat-top"><span class="stat-label">Impressions</span><span class="stat-icon">◉</span></div>
+      <div class="stat-value">48.7K</div><div class="change up">↑ 12.7% <span class="muted">vs last month</span></div>
+    </div>
+    <div class="card stat">
+      <div class="stat-top"><span class="stat-label">Avg. Position</span><span class="stat-icon">#</span></div>
+      <div class="stat-value">8.6</div><div class="change up">↑ 2.1 <span class="muted">positions</span></div>
+    </div>
+    <div class="card stat">
+      <div class="stat-top"><span class="stat-label">Organic CTR</span><span class="stat-icon">%</span></div>
+      <div class="stat-value">4.92%</div><div class="change up">↑ 0.8% <span class="muted">vs last month</span></div>
+    </div>
   </div>
 </section>
 
 <section class="section" id="gsc">
  <div class="grid two">
-  <div class="card"><div class="section-head"><h3>Search Performance</h3><span>Last 28 days</span></div><div class="legend"><span><i class="dot"></i>Organic clicks</span></div><div class="chart">
-   <i class="bar" style="--h:32%" data-v="42"></i><i class="bar" style="--h:44%" data-v="58"></i><i class="bar" style="--h:38%" data-v="51"></i><i class="bar" style="--h:53%" data-v="69"></i><i class="bar" style="--h:48%" data-v="63"></i><i class="bar" style="--h:66%" data-v="86"></i><i class="bar" style="--h:58%" data-v="76"></i><i class="bar" style="--h:72%" data-v="94"></i><i class="bar" style="--h:62%" data-v="81"></i><i class="bar" style="--h:79%" data-v="103"></i><i class="bar" style="--h:68%" data-v="89"></i><i class="bar" style="--h:86%" data-v="112"></i><i class="bar" style="--h:76%" data-v="99"></i><i class="bar" style="--h:92%" data-v="120"></i>
-   <div class="chart-labels"><span>Jul 24</span><span>Jul 31</span><span>Aug 07</span><span>Aug 20</span></div>
-  </div></div>
-  <div class="card"><div class="section-head"><h3>SEO Health</h3><span>Site audit</span></div><div class="kpi-row"><div><span>Overall score</span><br><strong>92/100</strong></div><span class="tag good">Excellent</span></div><div class="progress"><i style="width:92%"></i></div>
+  <div class="card">
+   <div class="section-head"><h3>Search Performance</h3><span>Last 28 days</span></div>
+   <div class="legend"><span><i class="dot"></i>Organic clicks</span></div>
+   <div class="chart">
+    <i class="bar" style="--h:32%" data-v="42"></i><i class="bar" style="--h:44%" data-v="58"></i><i class="bar" style="--h:38%" data-v="51"></i><i class="bar" style="--h:53%" data-v="69"></i><i class="bar" style="--h:48%" data-v="63"></i><i class="bar" style="--h:66%" data-v="86"></i><i class="bar" style="--h:58%" data-v="76"></i><i class="bar" style="--h:72%" data-v="94"></i><i class="bar" style="--h:62%" data-v="81"></i><i class="bar" style="--h:79%" data-v="103"></i><i class="bar" style="--h:68%" data-v="89"></i><i class="bar" style="--h:86%" data-v="112"></i><i class="bar" style="--h:76%" data-v="99"></i><i class="bar" style="--h:92%" data-v="120"></i>
+    <div class="chart-labels"><span>Jul 24</span><span>Jul 31</span><span>Aug 07</span><span>Aug 20</span></div>
+   </div>
+  </div>
+
+  <div class="card">
+   <div class="section-head"><h3>SEO Health</h3><span>Site audit</span></div>
+   <div class="kpi-row"><div><span>Overall score</span><br><strong>92/100</strong></div><span class="tag good">Excellent</span></div>
+   <div class="progress"><i style="width:92%"></i></div>
    <div class="check ok"><span class="check-icon">✓</span>Indexability & crawlability <span class="tag good" style="margin-left:auto">Good</span></div>
    <div class="check ok"><span class="check-icon">✓</span>On-page optimization <span class="tag good" style="margin-left:auto">Good</span></div>
    <div class="check warn"><span class="check-icon">!</span>Core Web Vitals <span class="tag orange" style="margin-left:auto">Review</span></div>
@@ -107,24 +186,32 @@ table{width:100%;border-collapse:collapse;font-size:12px}th{text-align:left;colo
 </section>
 
 <section class="section" id="keywords">
- <div class="card"><div class="section-head"><h3>Keyword Rankings</h3><span>Top opportunities</span></div>
- <div style="overflow:auto"><table><thead><tr><th>Keyword</th><th>Position</th><th>Change</th><th>Intent</th><th>Target URL</th><th>Status</th></tr></thead>
- <tbody><tr><td><strong>seo expert in bangladesh</strong></td><td><strong>#3</strong></td><td class="up">↑ 4</td><td>Commercial</td><td>/services/seo</td><td><span class="tag good">Improving</span></td></tr>
- <tr><td>technical seo expert</td><td><strong>#6</strong></td><td class="up">↑ 2</td><td>Commercial</td><td>/services/technical-seo</td><td><span class="tag blue">Stable</span></td></tr>
- <tr><td>seo consultant bangladesh</td><td><strong>#9</strong></td><td class="up">↑ 6</td><td>Commercial</td><td>/services/consulting</td><td><span class="tag good">Improving</span></td></tr>
- <tr><td>keyword research service</td><td>#14</td><td class="up">↑ 3</td><td>Commercial</td><td>/services/keyword-research</td><td><span class="tag orange">Opportunity</span></td></tr></tbody></table></div>
+ <div class="card">
+  <div class="section-head"><h3>Keyword Rankings</h3><span>Top opportunities</span></div>
+  <div style="overflow:auto">
+   <table><thead><tr><th>Keyword</th><th>Position</th><th>Change</th><th>Intent</th><th>Target URL</th><th>Status</th></tr></thead>
+   <tbody>
+    <tr><td><strong>seo expert in bangladesh</strong></td><td><strong>#3</strong></td><td class="up">↑ 4</td><td>Commercial</td><td>/services/seo</td><td><span class="tag good">Improving</span></td></tr>
+    <tr><td>technical seo expert</td><td><strong>#6</strong></td><td class="up">↑ 2</td><td>Commercial</td><td>/services/technical-seo</td><td><span class="tag blue">Stable</span></td></tr>
+    <tr><td>seo consultant bangladesh</td><td><strong>#9</strong></td><td class="up">↑ 6</td><td>Commercial</td><td>/services/consulting</td><td><span class="tag good">Improving</span></td></tr>
+    <tr><td>keyword research service</td><td>#14</td><td class="up">↑ 3</td><td>Commercial</td><td>/services/keyword-research</td><td><span class="tag orange">Opportunity</span></td></tr>
+   </tbody></table>
+  </div>
  </div>
 </section>
 
 <section class="section" id="projects">
  <div class="grid two">
-  <div class="card"><div class="section-head"><h3>Projects & Clients</h3><span>Active projects</span></div>
+  <div class="card">
+   <div class="section-head"><h3>Projects & Clients</h3><span>Active projects</span></div>
    <div class="project"><div class="project-icon">CC</div><div><h4>Creatus Computer</h4><p>E-commerce SEO · Technical + On-page</p></div><span class="tag good">Active</span></div>
    <div class="project"><div class="project-icon">TT</div><div><h4>Trendtrek Digital</h4><p>SEO & digital growth · Content strategy</p></div><span class="tag blue">Active</span></div>
    <div class="project"><div class="project-icon">SF</div><div><h4>SIHA Bag Factory</h4><p>E-commerce · Keyword & content optimization</p></div><span class="tag orange">Review</span></div>
    <div class="project"><div class="project-icon">AR</div><div><h4>AR Plumbing Singapore</h4><p>Local SEO · Service-area optimization</p></div><span class="tag good">Active</span></div>
   </div>
-  <div class="card" id="analytics"><div class="section-head"><h3>Analytics Snapshot</h3><span>GA4</span></div>
+
+  <div class="card" id="analytics">
+   <div class="section-head"><h3>Analytics Snapshot</h3><span>GA4</span></div>
    <div class="kpi-row"><div><span>Organic users</span><br><strong>2,306</strong></div><span class="change up">↑ 21.3%</span></div>
    <div class="kpi-row"><div><span>Engagement rate</span><br><strong>61.8%</strong></div><span class="change up">↑ 4.2%</span></div>
    <div class="kpi-row"><div><span>Conversions</span><br><strong>87</strong></div><span class="change up">↑ 15.6%</span></div>
@@ -142,73 +229,122 @@ table{width:100%;border-collapse:collapse;font-size:12px}th{text-align:left;colo
 </section>
 
 <section class="section" id="reports">
- <div class="card"><div class="section-head"><h3>Monthly Reports</h3><button class="outline-btn" onclick="toast('Report export will be connected to your live data.')">Export Report</button></div>
- <div style="overflow:auto"><table><thead><tr><th>Month</th><th>Clicks</th><th>Traffic</th><th>Keywords</th><th>Visibility</th><th>Report</th></tr></thead><tbody>
- <tr><td>August 2026</td><td>1,284</td><td>2,306 users</td><td>124</td><td>+18.4%</td><td><span class="tag blue">Ready</span></td></tr>
- <tr><td>July 2026</td><td>1,084</td><td>1,902 users</td><td>109</td><td>+12.1%</td><td><span class="tag blue">Ready</span></td></tr>
- <tr><td>June 2026</td><td>966</td><td>1,741 users</td><td>96</td><td>+9.7%</td><td><span class="tag blue">Ready</span></td></tr></tbody></table></div>
+ <div class="card">
+  <div class="section-head"><h3>Monthly Reports</h3><button class="outline-btn" onclick="toast('Report export will be connected to your live data.')">Export Report</button></div>
+  <div style="overflow:auto"><table><thead><tr><th>Month</th><th>Clicks</th><th>Traffic</th><th>Keywords</th><th>Visibility</th><th>Report</th></tr></thead><tbody>
+  <tr><td>August 2026</td><td>1,284</td><td>2,306 users</td><td>124</td><td>+18.4%</td><td><span class="tag blue">Ready</span></td></tr>
+  <tr><td>July 2026</td><td>1,084</td><td>1,902 users</td><td>109</td><td>+12.1%</td><td><span class="tag blue">Ready</span></td></tr>
+  <tr><td>June 2026</td><td>966</td><td>1,741 users</td><td>96</td><td>+9.7%</td><td><span class="tag blue">Ready</span></td></tr>
+  </tbody></table></div>
  </div>
 </section>
 
 <section class="section" id="portfolio">
- <div class="card"><div class="section-head"><h3>Portfolio & Case Studies</h3><span>Selected work</span></div>
- <div class="grid three">
-  <div><h4>Creatus Computer</h4><p class="muted" style="font-size:11px;margin:5px 0 10px">E-commerce SEO · Technical, content & internal linking</p><span class="tag good">Case Study</span></div>
-  <div><h4>Trendtrek Digital</h4><p class="muted" style="font-size:11px;margin:5px 0 10px">SEO strategy · Site structure & content planning</p><span class="tag good">Case Study</span></div>
-  <div><h4>Local SEO Projects</h4><p class="muted" style="font-size:11px;margin:5px 0 10px">Local visibility · Maps & service-area SEO</p><span class="tag blue">Portfolio</span></div>
- </div></div>
+ <div class="card">
+  <div class="section-head"><h3>Portfolio & Case Studies</h3><span>Selected work</span></div>
+  <div class="grid three">
+   <div><h4 style="color:var(--text)">Creatus Computer</h4><p class="muted" style="font-size:11px;margin:5px 0 10px">E-commerce SEO · Technical, content & internal linking</p><span class="tag good">Case Study</span></div>
+   <div><h4 style="color:var(--text)">Trendtrek Digital</h4><p class="muted" style="font-size:11px;margin:5px 0 10px">SEO strategy · Site structure & content planning</p><span class="tag good">Case Study</span></div>
+   <div><h4 style="color:var(--text)">Local SEO Projects</h4><p class="muted" style="font-size:11px;margin:5px 0 10px">Local visibility · Maps & service-area SEO</p><span class="tag blue">Portfolio</span></div>
+  </div>
+ </div>
 </section>
 
 <section class="section" id="leads">
- <div class="card"><div class="section-head"><h3>Leads & Inquiries</h3><span>CRM snapshot</span></div>
- <div style="overflow:auto"><table><thead><tr><th>Name</th><th>Website</th><th>Service</th><th>Date</th><th>Status</th></tr></thead><tbody>
- <tr><td>New inquiry</td><td>—</td><td>Technical SEO Audit</td><td>Awaiting data</td><td><span class="tag orange">Pending</span></td></tr>
- <tr><td>New inquiry</td><td>—</td><td>On-Page SEO</td><td>Awaiting data</td><td><span class="tag orange">Pending</span></td></tr></tbody></table></div>
+ <div class="card">
+  <div class="section-head"><h3>Leads & Inquiries</h3><span>CRM snapshot</span></div>
+  <div style="overflow:auto"><table><thead><tr><th>Name</th><th>Website</th><th>Service</th><th>Date</th><th>Status</th></tr></thead><tbody>
+   <tr><td>New inquiry</td><td>—</td><td>Technical SEO Audit</td><td>Awaiting data</td><td><span class="tag orange">Pending</span></td></tr>
+   <tr><td>New inquiry</td><td>—</td><td>On-Page SEO</td><td>Awaiting data</td><td><span class="tag orange">Pending</span></td></tr>
+  </tbody></table></div>
  </div>
 </section>
 
 <section class="section" id="github">
  <div class="grid two">
-  <div class="card"><div class="section-head"><h3>GitHub Activity</h3><span>Public profile</span></div><div class="kpi-row"><div><span>Profile</span><br><strong>jonyedahmed420-rgb</strong></div><span class="tag good">Connected</span></div><p class="muted" style="font-size:11px">Use this area for repositories, recent commits, projects and portfolio links once GitHub data is connected.</p></div>
-  <div class="card" id="profile"><div class="section-head"><h3>Profile</h3><span>Public identity</span></div><div class="project"><div class="avatar">JA</div><div><h4>Jonayed Ahmed</h4><p>SEO Expert & Digital Marketing Specialist</p></div></div><p class="muted" style="font-size:11px">Technical SEO · On-Page SEO · Keyword Research · Local SEO · SEO Reporting</p></div>
+  <div class="card">
+   <div class="section-head"><h3>GitHub Activity</h3><span>Public profile</span></div>
+   <div class="kpi-row"><div><span>Profile</span><br><strong>jonyedahmed420-rgb</strong></div><span class="tag good">Connected</span></div>
+   <p class="muted" style="font-size:11px">Use this area for repositories, recent commits, projects and portfolio links once GitHub data is connected.</p>
+  </div>
+  <div class="card" id="profile">
+   <div class="section-head"><h3>Profile</h3><span>Public identity</span></div>
+   <div class="project"><div class="avatar">JA</div><div><h4>Jonayed Ahmed</h4><p>SEO Expert & Digital Marketing Specialist</p></div></div>
+   <p class="muted" style="font-size:11px">Technical SEO · On-Page SEO · Keyword Research · Local SEO · SEO Reporting</p>
+  </div>
  </div>
 </section>
 
 <section class="section" id="settings">
- <div class="card"><div class="section-head"><h3>Settings & Integrations</h3><span>Configuration</span></div>
- <div class="grid three">
-  <div><h4 style="font-size:12px">Google Search Console</h4><p class="muted" style="font-size:11px;margin:5px 0">Not connected to live API</p><button class="outline-btn" onclick="toast('GSC integration placeholder — connect securely via backend/OAuth.')">Connect</button></div>
-  <div><h4 style="font-size:12px">Google Analytics 4</h4><p class="muted" style="font-size:11px;margin:5px 0">Not connected to live API</p><button class="outline-btn" onclick="toast('GA4 integration placeholder — connect securely via backend/OAuth.')">Connect</button></div>
-  <div><h4 style="font-size:12px">Theme</h4><p class="muted" style="font-size:11px;margin:5px 0">Use the top-right theme control.</p><button class="outline-btn" onclick="document.documentElement.style.setProperty('--primary','#7c3aed');toast('Accent preview changed.')">Preview</button></div>
- </div></div>
+ <div class="card">
+  <div class="section-head"><h3>Settings & Integrations</h3><span>Configuration</span></div>
+  <div class="grid three">
+   <div><h4 style="font-size:12px;color:var(--text)">Google Search Console</h4><p class="muted" style="font-size:11px;margin:5px 0">Not connected to live API</p><button class="outline-btn" onclick="toast('GSC integration placeholder — connect securely via backend/OAuth.')">Connect</button></div>
+   <div><h4 style="font-size:12px;color:var(--text)">Google Analytics 4</h4><p class="muted" style="font-size:11px;margin:5px 0">Not connected to live API</p><button class="outline-btn" onclick="toast('GA4 integration placeholder — connect securely via backend/OAuth.')">Connect</button></div>
+   <div><h4 style="font-size:12px;color:var(--text)">Theme</h4><p class="muted" style="font-size:11px;margin:5px 0">Use the top-right theme control.</p><button class="outline-btn" onclick="toggleTheme()">Toggle Theme</button></div>
+  </div>
+ </div>
 </section>
+
 <div class="footer">© 2026 Jonayed Ahmed · SEO Command Center · Demo dashboard UI — connect secure APIs for live data.</div>
 </div>
 </main>
 </div>
+
 <div class="toast" id="toast"></div>
+
 <script>
-const sidebar=document.getElementById('sidebar'),menuBtn=document.getElementById('menuBtn');
+const sidebar=document.getElementById('sidebar');
+const menuBtn=document.getElementById('menuBtn');
+
 menuBtn?.addEventListener('click',()=>sidebar.classList.toggle('open'));
-document.getElementById('siteBtn').onclick=()=>window.open('../','_blank');
-document.getElementById('refreshBtn').onclick=()=>{toast('Dashboard refreshed. Live API data can be connected next.');};
-document.getElementById('connectBtn').onclick=()=>document.getElementById('settings').scrollIntoView({behavior:'smooth'});
-document.getElementById('themeBtn').onclick=()=>{
- document.body.classList.toggle('dark-preview');
- const dark=document.body.classList.contains('dark-preview');
- document.documentElement.style.setProperty('--bg',dark?'#0b1120':'#f5f7fb');
- document.documentElement.style.setProperty('--card',dark?'#111827':'#fff');
- document.documentElement.style.setProperty('--text',dark?'#f8fafc':'#0f172a');
- document.documentElement.style.setProperty('--muted',dark?'#94a3b8':'#64748b');
- document.documentElement.style.setProperty('--line',dark?'#263244':'#e2e8f0');
- toast(dark?'Dark preview enabled':'Light preview enabled');
+
+document.getElementById('siteBtn').onclick=()=>{
+  window.open('https://jonyedahmed420-rgb.github.io/','_blank','noopener,noreferrer');
 };
-function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(window.__toast);window.__toast=setTimeout(()=>t.classList.remove('show'),2500)}
-document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>sidebar.classList.remove('open')));
+
+document.getElementById('refreshBtn').onclick=()=>{
+  toast('Dashboard refreshed. Live API data can be connected next.');
+};
+
+document.getElementById('connectBtn').onclick=()=>{
+  document.getElementById('settings').scrollIntoView({behavior:'smooth'});
+};
+
+function toggleTheme(){
+  document.body.classList.toggle('dark');
+  const dark=document.body.classList.contains('dark');
+  localStorage.setItem('seoDashboardTheme',dark?'dark':'light');
+  toast(dark?'Dark mode enabled':'Light mode enabled');
+}
+
+document.getElementById('themeBtn').onclick=toggleTheme;
+
+if(localStorage.getItem('seoDashboardTheme')==='dark'){
+  document.body.classList.add('dark');
+}
+
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  clearTimeout(window.__toast);
+  window.__toast=setTimeout(()=>t.classList.remove('show'),2500);
+}
+
+document.querySelectorAll('.nav a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    sidebar.classList.remove('open');
+    document.querySelectorAll('.nav a').forEach(x=>x.classList.remove('active'));
+    a.classList.add('active');
+  });
+});
 </script>
 </body>
 </html>
 '''
+
 path = Path("/mnt/data/dashboard_index.html")
 path.write_text(html, encoding="utf-8")
-print(f"Created: {path} ({len(html):,} characters)")
+print(f"Created: {path}")
+print(f"Size: {len(html):,} characters")
