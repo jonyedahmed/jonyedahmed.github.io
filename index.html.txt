@@ -2,598 +2,598 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Jonayed Ahmed | SEO Expert & Digital Marketer</title>
+<title>Jonayed Ahmed | SEO Expert & Digital Marketer</title>
 
-    <meta name="description" content="Jonayed Ahmed is an SEO Expert and Digital Marketer specializing in Technical SEO, On-Page SEO, Keyword Research and Local SEO.">
+<meta name="description" content="Jonayed Ahmed is an SEO Expert and Digital Marketer specializing in Technical SEO, On-Page SEO, Keyword Research and Local SEO.">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+scroll-behavior: smooth;
+}
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f8fafc;
-            color: #1e293b;
-            line-height: 1.6;
-        }
+body {
+font-family: Arial, Helvetica, sans-serif;
+background: #f8fafc;
+color: #1e293b;
+line-height: 1.6;
+}
 
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: #0f172a;
-            padding: 18px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+header {
+position: sticky;
+top: 0;
+z-index: 1000;
+background: #0f172a;
+padding: 18px 8%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
 
-        .logo {
-            color: #38bdf8;
-            font-size: 24px;
-            font-weight: bold;
-        }
+.logo {
+color: #38bdf8;
+font-size: 24px;
+font-weight: bold;
+}
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 15px;
-        }
+nav a {
+color: #fff;
+text-decoration: none;
+margin-left: 25px;
+font-size: 15px;
+}
 
-        nav a:hover {
-            color: #38bdf8;
-        }
+nav a:hover {
+color: #38bdf8;
+}
 
-        .hero {
-            min-height: 92vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, #e0f2fe, #f8fafc);
-        }
+.hero {
+min-height: 92vh;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 60px 20px;
+background: linear-gradient(135deg, #e0f2fe, #f8fafc);
+}
 
-        .hero-content {
-            max-width: 800px;
-        }
+.hero-content {
+max-width: 800px;
+}
 
-        .hero h1 {
-            font-size: 55px;
-            color: #0f172a;
-            margin-bottom: 15px;
-        }
+.hero h1 {
+font-size: 55px;
+color: #0f172a;
+margin-bottom: 15px;
+}
 
-        .hero h1 span {
-            color: #0284c7;
-        }
+.hero h1 span {
+color: #0284c7;
+}
 
-        .hero h2 {
-            font-size: 25px;
-            color: #475569;
-            margin-bottom: 20px;
-        }
+.hero h2 {
+font-size: 25px;
+color: #475569;
+margin-bottom: 20px;
+}
 
-        .hero p {
-            font-size: 18px;
-            color: #64748b;
-            max-width: 680px;
-            margin: auto;
-        }
+.hero p {
+font-size: 18px;
+color: #64748b;
+max-width: 680px;
+margin: auto;
+}
 
-        .buttons {
-            margin-top: 30px;
-        }
+.buttons {
+margin-top: 30px;
+}
 
-        .btn {
-            display: inline-block;
-            padding: 13px 25px;
-            margin: 5px;
-            border-radius: 7px;
-            text-decoration: none;
-            font-weight: bold;
-            background: #0284c7;
-            color: white;
-            transition: 0.3s;
-        }
+.btn {
+display: inline-block;
+padding: 13px 25px;
+margin: 5px;
+border-radius: 7px;
+text-decoration: none;
+font-weight: bold;
+background: #0284c7;
+color: white;
+transition: 0.3s;
+}
 
-        .btn:hover {
-            background: #0369a1;
-            transform: translateY(-2px);
-        }
+.btn:hover {
+background: #0369a1;
+transform: translateY(-2px);
+}
 
-        .btn-outline {
-            background: transparent;
-            color: #0284c7;
-            border: 2px solid #0284c7;
-        }
+.btn-outline {
+background: transparent;
+color: #0284c7;
+border: 2px solid #0284c7;
+}
 
-        .btn-outline:hover {
-            background: #0284c7;
-            color: white;
-        }
+.btn-outline:hover {
+background: #0284c7;
+color: white;
+}
 
-        section {
-            padding: 80px 8%;
-        }
+section {
+padding: 80px 8%;
+}
 
-        .section-title {
-            text-align: center;
-            font-size: 34px;
-            color: #0f172a;
-            margin-bottom: 45px;
-        }
+.section-title {
+text-align: center;
+font-size: 34px;
+color: #0f172a;
+margin-bottom: 45px;
+}
 
-        .about {
-            max-width: 850px;
-            margin: auto;
-            text-align: center;
-            font-size: 17px;
-            color: #64748b;
-        }
+.about {
+max-width: 850px;
+margin: auto;
+text-align: center;
+font-size: 17px;
+color: #64748b;
+}
 
-        .skills {
-            max-width: 1000px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-        }
+.skills {
+max-width: 1000px;
+margin: auto;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+gap: 20px;
+}
 
-        .skill {
-            background: white;
-            padding: 25px;
-            text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-            font-weight: bold;
-            transition: 0.3s;
-        }
+.skill {
+background: white;
+padding: 25px;
+text-align: center;
+border-radius: 10px;
+box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+font-weight: bold;
+transition: 0.3s;
+}
 
-        .skill:hover {
-            transform: translateY(-5px);
-        }
+.skill:hover {
+transform: translateY(-5px);
+}
 
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 25px;
-        }
+.services {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+gap: 25px;
+}
 
-        .service {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-            transition: 0.3s;
-        }
+.service {
+background: white;
+padding: 30px;
+border-radius: 12px;
+box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+transition: 0.3s;
+}
 
-        .service:hover {
-            transform: translateY(-5px);
-        }
+.service:hover {
+transform: translateY(-5px);
+}
 
-        .service h3 {
-            color: #0284c7;
-            margin-bottom: 12px;
-        }
+.service h3 {
+color: #0284c7;
+margin-bottom: 12px;
+}
 
-        .service p {
-            color: #64748b;
-        }
+.service p {
+color: #64748b;
+}
 
-        .tools {
-            background: #f1f5f9;
-        }
+.tools {
+background: #f1f5f9;
+}
 
-        .experience {
-            max-width: 850px;
-            margin: auto;
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-        }
+.experience {
+max-width: 850px;
+margin: auto;
+background: white;
+padding: 30px;
+border-radius: 12px;
+box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+}
 
-        .experience h3 {
-            color: #0284c7;
-            margin-bottom: 8px;
-        }
+.experience h3 {
+color: #0284c7;
+margin-bottom: 8px;
+}
 
-        .experience p {
-            color: #64748b;
-        }
+.experience p {
+color: #64748b;
+}
 
-        .contact {
-            text-align: center;
-            background: #0f172a;
-            color: white;
-        }
+.contact {
+text-align: center;
+background: #0f172a;
+color: white;
+}
 
-        .contact .section-title {
-            color: white;
-        }
+.contact .section-title {
+color: white;
+}
 
-        .contact p {
-            margin: 8px 0;
-            color: #cbd5e1;
-        }
+.contact p {
+margin: 8px 0;
+color: #cbd5e1;
+}
 
-        footer {
-            text-align: center;
-            padding: 22px;
-            background: #020617;
-            color: #94a3b8;
-            font-size: 14px;
-        }
+footer {
+text-align: center;
+padding: 22px;
+background: #020617;
+color: #94a3b8;
+font-size: 14px;
+}
 
-        @media (max-width: 700px) {
+@media (max-width: 700px) {
 
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
+header {
+flex-direction: column;
+gap: 15px;
+}
 
-            nav {
-                text-align: center;
-            }
+nav {
+text-align: center;
+}
 
-            nav a {
-                margin: 0 7px;
-                font-size: 13px;
-            }
+nav a {
+margin: 0 7px;
+font-size: 13px;
+}
 
-            .hero h1 {
-                font-size: 38px;
-            }
+.hero h1 {
+font-size: 38px;
+}
 
-            .hero h2 {
-                font-size: 20px;
-            }
+.hero h2 {
+font-size: 20px;
+}
 
-            .hero p {
-                font-size: 16px;
-            }
+.hero p {
+font-size: 16px;
+}
 
-            section {
-                padding: 60px 5%;
-            }
-        }
-    </style>
+section {
+padding: 60px 5%;
+}
+}
+</style>
 </head>
 
 <body>
 
 <header>
 
-    <div class="logo">
-        Jonayed Ahmed
-    </div>
+<div class="logo">
+Jonayed Ahmed
+</div>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#services">Services</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#services">Services</a>
+<a href="#experience">Experience</a>
+<a href="#contact">Contact</a>
+</nav>
 
 </header>
 
 
 <section class="hero" id="home">
 
-    <div class="hero-content">
+<div class="hero-content">
 
-        <h1>
-            Hi, I'm <span>Jonayed Ahmed</span>
-        </h1>
+<h1>
+Hi, I'm <span>Jonayed Ahmed</span>
+</h1>
 
-        <h2>
-            SEO Expert & Digital Marketing Specialist
-        </h2>
+<h2>
+SEO Expert & Digital Marketing Specialist
+</h2>
 
-        <p>
-            I help businesses improve their Google rankings, increase organic
-            traffic and build a stronger online presence through effective
-            SEO strategies.
-        </p>
+<p>
+I help businesses improve their Google rankings, increase organic
+traffic and build a stronger online presence through effective
+SEO strategies.
+</p>
 
-        <div class="buttons">
+<div class="buttons">
 
-            <a href="#contact" class="btn">
-                Contact Me
-            </a>
+<a href="#contact" class="btn">
+Contact Me
+</a>
 
-            <a href="#services" class="btn btn-outline">
-                My Services
-            </a>
+<a href="#services" class="btn btn-outline">
+My Services
+</a>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </section>
 
 
 <section id="about">
 
-    <h2 class="section-title">
-        About Me
-    </h2>
+<h2 class="section-title">
+About Me
+</h2>
 
-    <div class="about">
+<div class="about">
 
-        <p>
-            I am an SEO-focused digital marketer passionate about helping
-            websites grow through search engine optimization and digital
-            marketing strategies.
-        </p>
+<p>
+I am an SEO-focused digital marketer passionate about helping
+websites grow through search engine optimization and digital
+marketing strategies.
+</p>
 
-        <br>
+<br>
 
-        <p>
-            My areas of expertise include Technical SEO, On-Page SEO,
-            Keyword Research, Local SEO, Content Optimization and
-            Google Search Console analysis.
-        </p>
+<p>
+My areas of expertise include Technical SEO, On-Page SEO,
+Keyword Research, Local SEO, Content Optimization and
+Google Search Console analysis.
+</p>
 
-    </div>
+</div>
 
 </section>
 
 
 <section id="skills">
 
-    <h2 class="section-title">
-        My Skills
-    </h2>
+<h2 class="section-title">
+My Skills
+</h2>
 
-    <div class="skills">
+<div class="skills">
 
-        <div class="skill">
-            On-Page SEO
-        </div>
+<div class="skill">
+On-Page SEO
+</div>
 
-        <div class="skill">
-            Technical SEO
-        </div>
+<div class="skill">
+Technical SEO
+</div>
 
-        <div class="skill">
-            Keyword Research
-        </div>
+<div class="skill">
+Keyword Research
+</div>
 
-        <div class="skill">
-            Local SEO
-        </div>
+<div class="skill">
+Local SEO
+</div>
 
-        <div class="skill">
-            Content SEO
-        </div>
+<div class="skill">
+Content SEO
+</div>
 
-        <div class="skill">
-            WordPress SEO
-        </div>
+<div class="skill">
+WordPress SEO
+</div>
 
-        <div class="skill">
-            Google Search Console
-        </div>
+<div class="skill">
+Google Search Console
+</div>
 
-        <div class="skill">
-            GA4 & GTM
-        </div>
+<div class="skill">
+GA4 & GTM
+</div>
 
-    </div>
+</div>
 
 </section>
 
 
 <section id="services">
 
-    <h2 class="section-title">
-        My Services
-    </h2>
+<h2 class="section-title">
+My Services
+</h2>
 
-    <div class="services">
+<div class="services">
 
-        <div class="service">
+<div class="service">
 
-            <h3>
-                Technical SEO
-            </h3>
+<h3>
+Technical SEO
+</h3>
 
-            <p>
-                Find and fix technical SEO problems affecting crawling,
-                indexing, site structure and search performance.
-            </p>
+<p>
+Find and fix technical SEO problems affecting crawling,
+indexing, site structure and search performance.
+</p>
 
-        </div>
-
-
-        <div class="service">
-
-            <h3>
-                On-Page SEO
-            </h3>
-
-            <p>
-                Optimize titles, meta descriptions, headings, content,
-                URLs, internal links and other on-page elements.
-            </p>
-
-        </div>
+</div>
 
 
-        <div class="service">
+<div class="service">
 
-            <h3>
-                Keyword Research
-            </h3>
+<h3>
+On-Page SEO
+</h3>
 
-            <p>
-                Discover valuable keywords and search opportunities
-                based on business goals and target audiences.
-            </p>
+<p>
+Optimize titles, meta descriptions, headings, content,
+URLs, internal links and other on-page elements.
+</p>
 
-        </div>
-
-
-        <div class="service">
-
-            <h3>
-                Local SEO
-            </h3>
-
-            <p>
-                Improve local search visibility and help businesses
-                reach customers in their target locations.
-            </p>
-
-        </div>
+</div>
 
 
-        <div class="service">
+<div class="service">
 
-            <h3>
-                SEO Audit
-            </h3>
+<h3>
+Keyword Research
+</h3>
 
-            <p>
-                Analyze website SEO performance and identify technical,
-                content and optimization opportunities.
-            </p>
+<p>
+Discover valuable keywords and search opportunities
+based on business goals and target audiences.
+</p>
 
-        </div>
+</div>
 
 
-        <div class="service">
+<div class="service">
 
-            <h3>
-                Content Optimization
-            </h3>
+<h3>
+Local SEO
+</h3>
 
-            <p>
-                Optimize website content to improve relevance,
-                search visibility and user experience.
-            </p>
+<p>
+Improve local search visibility and help businesses
+reach customers in their target locations.
+</p>
 
-        </div>
+</div>
 
-    </div>
+
+<div class="service">
+
+<h3>
+SEO Audit
+</h3>
+
+<p>
+Analyze website SEO performance and identify technical,
+content and optimization opportunities.
+</p>
+
+</div>
+
+
+<div class="service">
+
+<h3>
+Content Optimization
+</h3>
+
+<p>
+Optimize website content to improve relevance,
+search visibility and user experience.
+</p>
+
+</div>
+
+</div>
 
 </section>
 
 
 <section class="tools">
 
-    <h2 class="section-title">
-        SEO Tools I Use
-    </h2>
+<h2 class="section-title">
+SEO Tools I Use
+</h2>
 
-    <div class="skills">
+<div class="skills">
 
-        <div class="skill">
-            Google Search Console
-        </div>
+<div class="skill">
+Google Search Console
+</div>
 
-        <div class="skill">
-            Google Analytics 4
-        </div>
+<div class="skill">
+Google Analytics 4
+</div>
 
-        <div class="skill">
-            Google Tag Manager
-        </div>
+<div class="skill">
+Google Tag Manager
+</div>
 
-        <div class="skill">
-            Ahrefs
-        </div>
+<div class="skill">
+Ahrefs
+</div>
 
-        <div class="skill">
-            Screaming Frog
-        </div>
+<div class="skill">
+Screaming Frog
+</div>
 
-        <div class="skill">
-            PageSpeed Insights
-        </div>
+<div class="skill">
+PageSpeed Insights
+</div>
 
-        <div class="skill">
-            GTmetrix
-        </div>
+<div class="skill">
+GTmetrix
+</div>
 
-        <div class="skill">
-            Bing Webmaster Tools
-        </div>
+<div class="skill">
+Bing Webmaster Tools
+</div>
 
-    </div>
+</div>
 
 </section>
 
 
 <section id="experience">
 
-    <h2 class="section-title">
-        Experience
-    </h2>
+<h2 class="section-title">
+Experience
+</h2>
 
-    <div class="experience">
+<div class="experience">
 
-        <h3>
-            SEO Executive
-        </h3>
+<h3>
+SEO Executive
+</h3>
 
-        <p>
-            Working on SEO campaigns for eCommerce and business websites,
-            including keyword research, on-page optimization, technical
-            SEO, content optimization and search performance analysis.
-        </p>
+<p>
+Working on SEO campaigns for eCommerce and business websites,
+including keyword research, on-page optimization, technical
+SEO, content optimization and search performance analysis.
+</p>
 
-    </div>
+</div>
 
 </section>
 
 
 <section class="contact" id="contact">
 
-    <h2 class="section-title">
-        Let's Work Together
-    </h2>
+<h2 class="section-title">
+Let's Work Together
+</h2>
 
-    <p>
-        Have an SEO project or want to improve your website's Google ranking?
-    </p>
+<p>
+Have an SEO project or want to improve your website's Google ranking?
+</p>
 
-    <p>
-        Email: your@email.com
-    </p>
+<p>
+Email: jonyedahmed420@email.com
+</p>
 
-    <div class="buttons">
+<div class="buttons">
 
-        <a href="mailto:your@email.com" class="btn">
-            Send Me an Email
-        </a>
+<a href="mailto:jonyedahmed420@email.com" class="btn">
+Send Me an Email
+</a>
 
-        <a href="https://github.com/jonyedahmed420-rgb"
-           target="_blank"
-           class="btn btn-outline">
-            GitHub
-        </a>
+<a href="https://github.com/jonyedahmed420-rgb"
+target="_blank"
+class="btn btn-outline">
+GitHub
+</a>
 
-    </div>
+</div>
 
 </section>
 
 
 <footer>
 
-    © 2026 Jonayed Ahmed. All Rights Reserved.
+© 2026 Jonayed Ahmed. All Rights Reserved.
 
 </footer>
 
