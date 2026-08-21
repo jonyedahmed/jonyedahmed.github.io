@@ -10,6 +10,7 @@
         :root {
             --bg: #0f172a;
             --card: #1e293b;
+            --card-hover: #243449;
             --text: #f1f5f9;
             --text-muted: #94a3b8;
             --primary: #6366f1;
@@ -19,6 +20,7 @@
             --border: #334155;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg);
@@ -30,7 +32,7 @@
         /* NAVBAR */
         nav {
             position: sticky; top: 0;
-            background: rgba(15, 23, 42, 0.8);
+            background: rgba(15, 23, 42, 0.85);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
             z-index: 100; padding: 1rem 0;
@@ -63,7 +65,7 @@
         .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
         
         /* SECTION HEADINGS */
-        .section { padding: 4rem 0; }
+        .section { padding: 5rem 0; }
         .section-header { text-align: center; margin-bottom: 3rem; }
         .section-header h2 { font-size: 2.25rem; margin-bottom: 0.5rem; }
         .section-header p { color: var(--text-muted); max-width: 500px; margin: 0 auto; }
@@ -76,13 +78,23 @@
         .stat-label { color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
         .stat-change { font-size: 0.85rem; color: var(--success); font-weight: 600; }
         
-        /* SERVICES GRID */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
-        .service-card { background: var(--card); border: 1px solid var(--border); padding: 2rem; border-radius: 12px; text-decoration: none; color: var(--text); transition: all 0.2s; }
-        .service-card:hover { border-color: var(--primary); background: #243449; }
-        .service-icon { width: 50px; height: 50px; background: rgba(99, 102, 241, 0.1); color: var(--primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.5rem; }
-        .service-card h3 { margin-bottom: 0.5rem; font-size: 1.25rem; }
-        .service-card p { color: var(--text-muted); font-size: 0.95rem; }
+        /* SERVICES & FEATURES GRID */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+        .feature-card { background: var(--card); border: 1px solid var(--border); padding: 2rem; border-radius: 12px; text-decoration: none; color: var(--text); transition: all 0.3s ease; }
+        .feature-card:hover { border-color: var(--primary); background: var(--card-hover); transform: translateY(-5px); }
+        .feature-icon { width: 50px; height: 50px; background: rgba(99, 102, 241, 0.1); color: var(--primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: bold; }
+        .feature-card h3 { margin-bottom: 0.5rem; font-size: 1.25rem; }
+        .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* TESTIMONIALS */
+        .testimonials { background: #131c31; }
+        .testimonial-card { background: var(--card); border: 1px solid var(--border); padding: 2rem; border-radius: 12px; position: relative; }
+        .testimonial-card::before { content: '“'; position: absolute; top: -10px; left: 20px; font-size: 5rem; color: var(--primary); opacity: 0.2; font-family: serif; }
+        .testimonial-card p { font-style: italic; margin-bottom: 1.5rem; color: var(--text-muted); }
+        .client-info { display: flex; align-items: center; gap: 1rem; }
+        .client-avatar { width: 45px; height: 45px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; }
+        .client-info strong { display: block; font-size: 0.95rem; }
+        .client-info span { font-size: 0.85rem; color: var(--text-muted); }
         
         /* CTA SECTION */
         .cta-section { background: var(--primary); border-radius: 16px; padding: 4rem 2rem; text-align: center; margin: 4rem 0; }
@@ -91,12 +103,20 @@
         .cta-section .btn { background: white; color: var(--primary); }
         .cta-section .btn:hover { background: #f1f5f9; transform: translateY(-2px); }
         
+        /* FLOATING CHAT BUBBLE */
+        .chat-bubble { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; cursor: pointer; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.5); transition: transform 0.2s; z-index: 99; text-decoration: none; }
+        .chat-bubble:hover { transform: scale(1.1); background: var(--primary-hover); }
+
         /* FOOTER */
         footer { border-top: 1px solid var(--border); padding: 2rem 0; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
         
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hero h1 { font-size: 2.25rem; }
+            .hero { padding: 4rem 0; }
+            .section { padding: 3rem 0; }
+            .cta-section { padding: 2.5rem 1rem; }
+            .cta-section h2 { font-size: 1.75rem; }
         }
     </style>
 </head>
@@ -110,16 +130,17 @@
                 Jonayed Ahmed
             </a>
             <ul class="nav-links">
-                <li><a href="dashboard/index.html" target="_blank">Dashboard</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#why-me">Why Me</a></li>
                 <li><a href="#results">Results</a></li>
+                <li><a href="dashboard/index.html" target="_blank" class="btn btn-secondary" style="padding: 0.5rem 1rem;">Dashboard</a></li>
                 <li><a href="#contact" class="btn btn-primary">Get Audit</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <header class="hero container">
+    <header class="hero container" id="home">
         <h1>Rank Higher. Grow Faster.</h1>
         <p>Hi, I'm Jonayed Ahmed. I help businesses dominate search engines through data-driven technical SEO, strategic content, and authoritative link building.</p>
         <div class="hero-actions">
@@ -167,27 +188,96 @@
                 <h2>SEO Management Services</h2>
                 <p>Comprehensive search engine optimization tailored to your business goals.</p>
             </div>
-            <div class="services-grid">
-                <a href="dashboard/seo/meta.html" target="_blank" class="service-card">
-                    <div class="service-icon">✎</div>
+            <div class="grid-3">
+                <a href="dashboard/seo/meta.html" target="_blank" class="feature-card">
+                    <div class="feature-icon">✎</div>
                     <h3>Meta SEO Optimization</h3>
                     <p>Crafting compelling titles and descriptions to improve click-through rates and relevancy.</p>
                 </a>
-                <a href="dashboard/seo/keywords.html" target="_blank" class="service-card">
-                    <div class="service-icon">⌕</div>
+                <a href="dashboard/seo/keywords.html" target="_blank" class="feature-card">
+                    <div class="feature-icon">⌕</div>
                     <h3>Keyword Research</h3>
                     <p>Identifying high-intent, low-competition keywords to drive targeted organic traffic.</p>
                 </a>
-                <a href="dashboard/seo/schema.html" target="_blank" class="service-card">
-                    <div class="service-icon">{ }</div>
+                <a href="dashboard/seo/schema.html" target="_blank" class="feature-card">
+                    <div class="feature-icon">{ }</div>
                     <h3>Schema Markup</h3>
                     <p>Implementing structured data to help search engines understand your content better.</p>
                 </a>
-                <a href="dashboard/technical/index.html" target="_blank" class="service-card">
-                    <div class="service-icon">✓</div>
+                <a href="dashboard/technical/index.html" target="_blank" class="feature-card">
+                    <div class="feature-icon">✓</div>
                     <h3>Technical SEO</h3>
                     <p>Fixing core web vitals, site speed, and crawlability to ensure peak performance.</p>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE ME -->
+    <section class="section" id="why-me">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Me?</h2>
+                <p>I don't just promise results; I engineer them through proven frameworks.</p>
+            </div>
+            <div class="grid-3">
+                <div class="feature-card" style="text-align: center;">
+                    <div class="feature-icon" style="margin: 0 auto 1.5rem;">📊</div>
+                    <h3>Data-Driven Strategy</h3>
+                    <p>Every decision is backed by deep analytics and search data, ensuring maximum ROI.</p>
+                </div>
+                <div class="feature-card" style="text-align: center;">
+                    <div class="feature-icon" style="margin: 0 auto 1.5rem;">🛡️</div>
+                    <h3>White-Hat Techniques</h3>
+                    <p>Strict adherence to Google Webmaster Guidelines. Safe, sustainable, and long-term growth.</p>
+                </div>
+                <div class="feature-card" style="text-align: center;">
+                    <div class="feature-icon" style="margin: 0 auto 1.5rem;">📝</div>
+                    <h3>Transparent Reporting</h3>
+                    <p>Access to live dashboards. See exactly what I am doing and how it impacts your bottom line.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Clients Say</h2>
+                <p>Trusted by businesses across the globe.</p>
+            </div>
+            <div class="grid-3">
+                <div class="testimonial-card">
+                    <p>"Jonayed transformed our online presence. Our organic traffic doubled within three months. Highly recommended!"</p>
+                    <div class="client-info">
+                        <div class="client-avatar">R</div>
+                        <div>
+                            <strong>Rakib Hasan</strong>
+                            <span>CEO, Creatus Computer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The level of transparency and the live dashboard feature is a game-changer. Finally, an SEO who actually communicates."</p>
+                    <div class="client-info">
+                        <div class="client-avatar">S</div>
+                        <div>
+                            <strong>Sumaiya Akter</strong>
+                            <span>Founder, Trendtrek Digital</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Technical SEO was a nightmare for us until Jonayed stepped in. Site speed is up, and we are ranking on page 1."</p>
+                    <div class="client-info">
+                        <div class="client-avatar">A</div>
+                        <div>
+                            <strong>Anik Rahman</strong>
+                            <span>Director, AR Plumbing</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -207,6 +297,9 @@
             <p>© 2024 Jonayed Ahmed · SEO Command Center. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Floating WhatsApp/Chat Button -->
+    <a href="mailto:hello@jonayed.com" class="chat-bubble" title="Chat with me">💬</a>
 
 </body>
 </html>
