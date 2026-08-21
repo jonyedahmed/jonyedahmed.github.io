@@ -26,6 +26,7 @@
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
         
@@ -36,33 +37,42 @@
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
             z-index: 100; padding: 1rem 0;
+            animation: slideDown 0.8s ease-out;
         }
         .nav-inner { display: flex; justify-content: space-between; align-items: center; }
         .brand { display: flex; align-items: center; gap: 0.75rem; font-weight: 700; font-size: 1.25rem; text-decoration: none; color: var(--text); }
-        .brand-logo { width: 40px; height: 40px; background: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .brand-logo { width: 40px; height: 40px; background: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; transition: transform 0.3s ease; }
+        .brand:hover .brand-logo { transform: rotate(10deg) scale(1.1); }
         .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
-        .nav-links a:hover { color: var(--text); }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; position: relative; }
+        .nav-links a:not(.btn)::after {
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+            background: var(--primary); transition: width 0.3s ease;
+        }
+        .nav-links a:not(.btn):hover { color: var(--text); }
+        .nav-links a:not(.btn):hover::after { width: 100%; }
         
-        .btn { display: inline-block; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.2s ease; border: none; cursor: pointer; }
-        .btn-primary { background: var(--primary); color: white; }
-        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); }
+        .btn { display: inline-block; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; border: none; cursor: pointer; }
+        .btn-primary { background: var(--primary); color: white; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3); }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5); }
         .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
-        .btn-secondary:hover { background: var(--card); border-color: var(--text-muted); }
+        .btn-secondary:hover { background: var(--card); border-color: var(--text-muted); transform: translateY(-3px); }
         
         /* HERO SECTION */
         .hero { padding: 6rem 0; text-align: center; position: relative; }
         .hero::before {
             content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
             width: 600px; height: 600px; background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%); z-index: -1;
+            animation: pulseGlow 6s ease-in-out infinite;
         }
         .hero h1 {
             font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem;
             background: linear-gradient(to right, #fff, #94a3b8);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: fadeUp 1s ease-out;
         }
-        .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 2.5rem; }
-        .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 2.5rem; animation: fadeUp 1s ease-out 0.2s backwards; }
+        .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; animation: fadeUp 1s ease-out 0.4s backwards; }
         
         /* SECTION HEADINGS */
         .section { padding: 5rem 0; }
@@ -72,44 +82,74 @@
         
         /* STATS GRID */
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
-        .stat-card { background: var(--card); border: 1px solid var(--border); padding: 1.5rem; border-radius: 12px; text-align: center; transition: transform 0.2s; }
-        .stat-card:hover { transform: translateY(-4px); border-color: var(--primary); }
+        .stat-card { background: var(--card); border: 1px solid var(--border); padding: 1.5rem; border-radius: 12px; text-align: center; transition: transform 0.3s ease, border-color 0.3s ease; }
+        .stat-card:hover { transform: translateY(-8px) scale(1.02); border-color: var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
         .stat-number { display: block; font-size: 2.5rem; font-weight: 800; margin: 0.5rem 0; color: var(--primary); }
         .stat-label { color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
         .stat-change { font-size: 0.85rem; color: var(--success); font-weight: 600; }
         
         /* SERVICES & FEATURES GRID */
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
-        .feature-card { background: var(--card); border: 1px solid var(--border); padding: 2rem; border-radius: 12px; text-decoration: none; color: var(--text); transition: all 0.3s ease; }
+        .feature-card { background: var(--card); border: 1px solid var(--border); padding: 2rem; border-radius: 12px; text-decoration: none; color: var(--text); transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .feature-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 0; background: var(--primary); transition: height 0.3s ease;
+        }
         .feature-card:hover { border-color: var(--primary); background: var(--card-hover); transform: translateY(-5px); }
-        .feature-icon { width: 50px; height: 50px; background: rgba(99, 102, 241, 0.1); color: var(--primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: bold; }
+        .feature-card:hover::before { height: 100%; }
+        .feature-icon { width: 50px; height: 50px; background: rgba(99, 102, 241, 0.1); color: var(--primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: bold; transition: transform 0.3s ease; }
+        .feature-card:hover .feature-icon { transform: rotate(-10deg) scale(1.1); }
         .feature-card h3 { margin-bottom: 0.5rem; font-size: 1.25rem; }
         .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
 
-        /* TESTIMONIALS */
-        .testimonials { background: #131c31; }
-        .testimonial-card { background: var(--card); border: 1px solid var(--border); padding: 2rem; border-radius: 12px; position: relative; }
-        .testimonial-card::before { content: '“'; position: absolute; top: -10px; left: 20px; font-size: 5rem; color: var(--primary); opacity: 0.2; font-family: serif; }
-        .testimonial-card p { font-style: italic; margin-bottom: 1.5rem; color: var(--text-muted); }
-        .client-info { display: flex; align-items: center; gap: 1rem; }
-        .client-avatar { width: 45px; height: 45px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; }
-        .client-info strong { display: block; font-size: 0.95rem; }
-        .client-info span { font-size: 0.85rem; color: var(--text-muted); }
-        
         /* CTA SECTION */
-        .cta-section { background: var(--primary); border-radius: 16px; padding: 4rem 2rem; text-align: center; margin: 4rem 0; }
-        .cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; color: white; }
-        .cta-section p { color: rgba(255, 255, 255, 0.9); font-size: 1.1rem; max-width: 500px; margin: 0 auto 2rem; }
-        .cta-section .btn { background: white; color: var(--primary); }
-        .cta-section .btn:hover { background: #f1f5f9; transform: translateY(-2px); }
+        .cta-section { background: var(--primary); border-radius: 16px; padding: 4rem 2rem; text-align: center; margin: 4rem 0; position: relative; overflow: hidden; }
+        .cta-section::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%); animation: rotateBg 20s linear infinite;
+        }
+        .cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; color: white; position: relative; z-index: 1; }
+        .cta-section p { color: rgba(255, 255, 255, 0.9); font-size: 1.1rem; max-width: 500px; margin: 0 auto 2rem; position: relative; z-index: 1; }
+        .cta-section .btn { background: white; color: var(--primary); position: relative; z-index: 1; }
+        .cta-section .btn:hover { background: #f1f5f9; transform: translateY(-3px) scale(1.05); }
         
-        /* FLOATING CHAT BUBBLE */
-        .chat-bubble { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; cursor: pointer; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.5); transition: transform 0.2s; z-index: 99; text-decoration: none; }
-        .chat-bubble:hover { transform: scale(1.1); background: var(--primary-hover); }
-
         /* FOOTER */
         footer { border-top: 1px solid var(--border); padding: 2rem 0; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
         
+        /* ANIMATIONS KEYFRAMES */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulseGlow { 0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.5; } 50% { transform: translateX(-50%) scale(1.2); opacity: 0.8; } }
+        @keyframes rotateBg { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        @keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+        /* SCROLL REVEAL CLASSES */
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* CHAT WIDGET STYLES */
+        .chat-toggle { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; cursor: pointer; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.5); z-index: 999; text-decoration: none; animation: bounce 2s infinite; border: none; }
+        .chat-toggle:hover { background: var(--primary-hover); animation: none; transform: scale(1.1); }
+        
+        .chat-window { position: fixed; bottom: 105px; right: 30px; width: 340px; max-width: calc(100% - 60px); height: 450px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); z-index: 999; display: none; flex-direction: column; overflow: hidden; animation: slideInRight 0.3s ease-out forwards; }
+        .chat-window.active { display: flex; }
+        
+        .chat-header { background: var(--primary); color: white; padding: 15px; display: flex; align-items: center; gap: 10px; }
+        .chat-header-avatar { width: 36px; height: 36px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .chat-header-info strong { display: block; font-size: 14px; line-height: 1.2; }
+        .chat-header-info span { font-size: 11px; opacity: 0.8; display: flex; align-items: center; gap: 5px; }
+        .chat-header-info span::before { content: ''; width: 8px; height: 8px; background: var(--success); border-radius: 50%; display: inline-block; }
+        .chat-close-btn { margin-left: auto; background: transparent; border: none; color: white; font-size: 18px; cursor: pointer; }
+        
+        .chat-body { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; background: var(--bg); }
+        .chat-msg { max-width: 75%; padding: 10px 14px; border-radius: 12px; font-size: 13px; line-height: 1.4; word-wrap: break-word; }
+        .chat-msg.bot { align-self: flex-start; background: var(--card-hover); border-bottom-left-radius: 2px; }
+        .chat-msg.user { align-self: flex-end; background: var(--primary); color: white; border-bottom-right-radius: 2px; }
+        
+        .chat-input-area { padding: 10px; background: var(--card); border-top: 1px solid var(--border); display: flex; gap: 10px; }
+        .chat-input-area input { flex: 1; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 10px; color: var(--text); font-size: 13px; outline: none; }
+        .chat-input-area button { background: var(--primary); color: white; border: none; border-radius: 6px; padding: 0 15px; cursor: pointer; font-size: 16px; transition: background 0.2s; }
+        .chat-input-area button:hover { background: var(--primary-hover); }
+
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hero h1 { font-size: 2.25rem; }
@@ -117,6 +157,8 @@
             .section { padding: 3rem 0; }
             .cta-section { padding: 2.5rem 1rem; }
             .cta-section h2 { font-size: 1.75rem; }
+            .chat-window { height: 380px; bottom: 90px; right: 15px; }
+            .chat-toggle { bottom: 20px; right: 20px; }
         }
     </style>
 </head>
@@ -149,27 +191,27 @@
     <!-- PROVEN RESULTS -->
     <section class="section" id="results">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <h2>Proven Results</h2>
                 <p>Real growth metrics achieved for clients over the last 30 days.</p>
             </div>
             <div class="stats-grid">
-                <div class="stat-card">
+                <div class="stat-card reveal">
                     <span class="stat-label">Organic Clicks</span>
                     <span class="stat-number">1,284</span>
                     <span class="stat-change">↑ 18.4% vs last month</span>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card reveal">
                     <span class="stat-label">Impressions</span>
                     <span class="stat-number">48.7K</span>
                     <span class="stat-change">↑ 12.7% vs last month</span>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card reveal">
                     <span class="stat-label">Avg. Position</span>
                     <span class="stat-number">8.6</span>
                     <span class="stat-change">↑ 2.1 positions</span>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card reveal">
                     <span class="stat-label">Organic CTR</span>
                     <span class="stat-number">4.92%</span>
                     <span class="stat-change">↑ 0.8% vs last month</span>
@@ -181,27 +223,27 @@
     <!-- SERVICES -->
     <section class="section" id="services" style="background: #131c31;">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <h2>SEO Management Services</h2>
                 <p>Comprehensive search engine optimization tailored to your business goals.</p>
             </div>
             <div class="grid-3">
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <div class="feature-icon">✎</div>
                     <h3>Meta SEO Optimization</h3>
                     <p>Crafting compelling titles and descriptions to improve click-through rates and relevancy.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <div class="feature-icon">⌕</div>
                     <h3>Keyword Research</h3>
                     <p>Identifying high-intent, low-competition keywords to drive targeted organic traffic.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <div class="feature-icon">{ }</div>
                     <h3>Schema Markup</h3>
                     <p>Implementing structured data to help search engines understand your content better.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card reveal">
                     <div class="feature-icon">✓</div>
                     <h3>Technical SEO</h3>
                     <p>Fixing core web vitals, site speed, and crawlability to ensure peak performance.</p>
@@ -212,7 +254,7 @@
 
     <!-- CTA SECTION -->
     <section class="container" id="contact">
-        <div class="cta-section">
+        <div class="cta-section reveal">
             <h2>Ready to Grow Your Organic Traffic?</h2>
             <p>Get a free comprehensive SEO audit. Find out exactly what's holding your website back from ranking #1.</p>
             <a href="mailto:jonyedahmed420@gmail.com" class="btn">Request Your Free Audit</a>
@@ -226,8 +268,154 @@
         </div>
     </footer>
 
-    <!-- Floating WhatsApp/Chat Button -->
-    <a href="mailto:jonyedahmed420@gmail.com" class="chat-bubble" title="Chat with me">💬</a>
+    <!-- INBUILD CHAT WIDGET -->
+    <button id="chatToggle" class="chat-toggle" title="Chat with me">💬</button>
+    
+    <div id="chatWindow" class="chat-window">
+        <div class="chat-header">
+            <div class="chat-header-avatar">JA</div>
+            <div class="chat-header-info">
+                <strong>Jonayed Ahmed</strong>
+                <span>SEO Expert</span>
+            </div>
+            <button id="chatClose" class="chat-close-btn">✕</button>
+        </div>
+        <div id="chatBody" class="chat-body">
+            <div class="chat-msg bot">Hi there! 👋 How can I help you grow your business today?</div>
+        </div>
+        <form id="chatForm" class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Type your message..." required autocomplete="off">
+            <button type="submit">➤</button>
+        </form>
+    </div>
 
+    <script>
+        // SCROLL REVEAL ANIMATION
+        document.addEventListener("DOMContentLoaded", function() {
+            const reveals = document.querySelectorAll(".reveal");
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            reveals.forEach(el => observer.observe(el));
+        });
+
+        // INBUILD CHAT LOGIC
+        const chatToggle = document.getElementById('chatToggle');
+        const chatWindow = document.getElementById('chatWindow');
+        const chatClose = document.getElementById('chatClose');
+        const chatForm = document.getElementById('chatForm');
+        const chatInput = document.getElementById('chatInput');
+        const chatBody = document.getElementById('chatBody');
+
+        chatToggle.addEventListener('click', () => {
+            chatWindow.classList.toggle('active');
+            chatToggle.style.display = 'none';
+        });
+
+        chatClose.addEventListener('click', () => {
+            chatWindow.classList.remove('active');
+            chatToggle.style.display = 'flex';
+        });
+
+        // SMART BOT LOGIC
+        function getBotReply(userMsg) {
+            let msg = userMsg.toLowerCase();
+            
+            // SEO related keywords
+            if (msg.includes("price") || msg.includes("cost") || msg.includes("charge") || msg.includes("fee")) {
+                return "My pricing depends on your website's current status and goals. Usually, SEO packages start from $200/month. Could you share your website URL so I can give you a custom quote?";
+            } 
+            else if (msg.includes("service") || msg.includes("offer") || msg.includes("do you do")) {
+                return "I offer Technical SEO, On-Page SEO, Keyword Research, Schema Markup, and Local SEO. Which one are you interested in?";
+            } 
+            else if (msg.includes("what is seo")) {
+                return "SEO stands for Search Engine Optimization. It's the process of improving your website to increase its visibility in Google search results for relevant queries.";
+            } 
+            else if (msg.includes("backlink")) {
+                return "Backlinks are links from one website to a page on another website. They are crucial for SEO. I provide high-quality, white-hat backlink building services.";
+            } 
+            else if (msg.includes("technical seo")) {
+                return "Technical SEO involves improving the technical aspects of your website like site speed, mobile-friendliness, indexing, and core web vitals to increase ranking.";
+            }
+            else if (msg.includes("keyword")) {
+                return "Keyword research is the process of finding what people are searching for on Google. I use premium tools to find low-competition, high-traffic keywords for your business.";
+            }
+            else if (msg.includes("hello") || msg.includes("hi") || msg.includes("hey")) {
+                return "Hello! 👋 How can I help you with your SEO or digital marketing today?";
+            }
+            else if (msg.includes("thank")) {
+                return "You're welcome! Let me know if you have any other questions.";
+            }
+            
+            // If the bot doesn't know the answer
+            return null; 
+        }
+
+        chatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const msg = chatInput.value.trim();
+            if(!msg) return;
+
+            // 1. Show User Message
+            const userBubble = document.createElement('div');
+            userBubble.className = 'chat-msg user';
+            userBubble.textContent = msg;
+            chatBody.appendChild(userBubble);
+            
+            chatBody.scrollTop = chatBody.scrollHeight;
+            chatInput.value = '';
+            chatInput.disabled = true;
+
+            // 2. Check if Bot knows the answer
+            const botReply = getBotReply(msg);
+
+            if(botReply) {
+                // Bot answers instantly
+                setTimeout(() => {
+                    const botBubble = document.createElement('div');
+                    botBubble.className = 'chat-msg bot';
+                    botBubble.textContent = botReply;
+                    chatBody.appendChild(botBubble);
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                    chatInput.disabled = false;
+                    chatInput.focus();
+                }, 800); // 0.8 second delay to feel natural
+            } else {
+                // Bot doesn't know, send to email
+                try {
+                    const response = await fetch('https://formsubmit.co/ajax/jonyedahmed420@gmail.com', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                        body: JSON.stringify({ _subject: 'New Chat Message from Website!', Message: msg })
+                    });
+
+                    if(response.ok) {
+                        const fallbackBubble = document.createElement('div');
+                        fallbackBubble.className = 'chat-msg bot';
+                        fallbackBubble.textContent = "That's a great question! I've forwarded this to Jonayed. He will reply to you via email shortly. Meanwhile, you can also email him directly at jonyedahmed420@gmail.com.";
+                        chatBody.appendChild(fallbackBubble);
+                        chatBody.scrollTop = chatBody.scrollHeight;
+                    } else {
+                        throw new Error('Failed to send');
+                    }
+                } catch (error) {
+                    const errorBubble = document.createElement('div');
+                    errorBubble.className = 'chat-msg bot';
+                    errorBubble.textContent = "Oops! Something went wrong. Please email me directly at jonyedahmed420@gmail.com";
+                    chatBody.appendChild(errorBubble);
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                } finally {
+                    chatInput.disabled = false;
+                    chatInput.focus();
+                }
+            }
+        });
+    </script>
+    
 </body>
 </html>
