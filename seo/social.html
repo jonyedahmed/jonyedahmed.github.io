@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Social SEO | Jonayed Ahmed</title>
+
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--text:#0f172a;--muted:#64748b;--line:#e2e8f0;--primary:#0284c7;--sidebar:#0b1220}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text)}
+button,input,textarea{font:inherit}a{text-decoration:none;color:inherit}
+.app{display:flex;min-height:100vh}
+.sidebar{width:255px;background:var(--sidebar);color:white;position:fixed;inset:0 auto 0 0;padding:20px 15px;z-index:50;display:flex;flex-direction:column}
+.brand{display:flex;gap:10px;align-items:center;padding:5px 10px 22px;border-bottom:1px solid rgba(255,255,255,.08)}
+.logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#38bdf8,#0369a1);display:grid;place-items:center;font-weight:800}.brand strong{font-size:15px}.brand small{display:block;color:#94a3b8;font-size:10px}
+.nav{padding-top:16px;overflow:auto}.title{font-size:9px;color:#64748b;text-transform:uppercase;letter-spacing:.12em;padding:10px}.nav a{display:flex;gap:10px;align-items:center;color:#cbd5e1;font-size:12px;padding:10px 11px;border-radius:8px;margin:2px 0}.nav a:hover,.nav a.active{background:rgba(56,189,248,.13);color:#fff}.icon{width:18px;text-align:center}
+.bottom{margin-top:auto;border-top:1px solid rgba(255,255,255,.08);padding-top:13px}.user{display:flex;gap:9px;align-items:center}.avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#0f172a);display:grid;place-items:center;font-weight:700;font-size:12px}.user strong{font-size:11px}.user span{display:block;color:#94a3b8;font-size:9px}
+.main{margin-left:255px;width:calc(100% - 255px)}.top{height:68px;background:var(--card);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;z-index:20}.top h1{font-size:19px}.top p{font-size:11px;color:var(--muted)}
+.content{max-width:1250px;margin:auto;padding:28px}.breadcrumb{font-size:11px;color:var(--muted);margin-bottom:8px}.heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:22px}.heading h2{font-size:25px}.heading p{font-size:12px;color:var(--muted);margin-top:4px}
+.grid{display:grid;gap:18px}.two{grid-template-columns:1fr 1fr}.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}.card h3{font-size:15px;margin-bottom:16px}
+.field{margin-bottom:15px}.field label{display:block;font-size:10px;font-weight:700;margin-bottom:6px}input,textarea{width:100%;padding:10px;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:8px;font-size:11px;outline:none}textarea{min-height:90px;resize:vertical}
+.btn,.outline{padding:9px 13px;border-radius:8px;font-size:11px;cursor:pointer}.btn{background:var(--primary);color:#fff;border:0}.outline{background:var(--card);color:var(--text);border:1px solid var(--line)}.actions{display:flex;gap:8px}
+.preview{border:1px solid var(--line);border-radius:10px;padding:18px}.social-title{font-size:18px;font-weight:700;margin:8px 0;color:#111827}.social-desc{font-size:11px;color:#64748b;line-height:1.6}.image{height:180px;background:linear-gradient(135deg,#0f172a,#0284c7);border-radius:8px;display:grid;place-items:center;color:white;font-weight:800;font-size:20px}
+.counter{float:right;color:var(--muted);font-weight:400}.footer{text-align:center;color:#94a3b8;font-size:10px;padding:25px}.menu{display:none}
+@media(max-width:850px){.two{grid-template-columns:1fr}}
+@media(max-width:750px){.sidebar{transform:translateX(-100%);transition:.2s}.sidebar.open{transform:translateX(0)}.main{margin-left:0;width:100%}.menu{display:inline-block}.top{padding:0 15px}.content{padding:20px 15px}.heading{display:block}.heading .btn{margin-top:12px}}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<aside class="sidebar" id="sidebar">
+
+<div class="brand"><div class="logo">JA</div><div><strong>SEO Command</strong><small>Jonayed Ahmed</small></div></div>
+
+<nav class="nav">
+
+<div class="title">Main</div>
+<a href="../index.html"><span class="icon">▦</span>Dashboard</a>
+
+<div class="title">SEO Management</div>
+<a href="index.html"><span class="icon">⌁</span>SEO Overview</a>
+<a href="meta.html"><span class="icon">✎</span>Meta SEO</a>
+<a href="keywords.html"><span class="icon">⌕</span>Keywords</a>
+<a href="schema.html"><span class="icon">{ }</span>Schema</a>
+<a class="active" href="social.html"><span class="icon">◈</span>Social SEO</a>
+
+<div class="title">Technical SEO</div>
+<a href="../technical/index.html"><span class="icon">✓</span>Technical SEO</a>
+<a href="../technical/sitemap.html"><span class="icon">▤</span>Sitemap</a>
+<a href="../technical/robots.html"><span class="icon">◉</span>Robots.txt</a>
+<a href="../technical/redirects.html"><span class="icon">↪</span>Redirects</a>
+
+<div class="title">Business</div>
+<a href="../projects/index.html"><span class="icon">▣</span>Projects & Clients</a>
+<a href="../analytics/index.html"><span class="icon">◔</span>Analytics</a>
+<a href="../backlinks/index.html"><span class="icon">↗</span>Backlinks</a>
+<a href="../reports/index.html"><span class="icon">▤</span>Reports</a>
+
+<div class="title">Account</div>
+<a href="../profile/index.html"><span class="icon">●</span>Profile</a>
+<a href="../settings/index.html"><span class="icon">⚙</span>Settings</a>
+
+</nav>
+
+<div class="bottom"><div class="user"><div class="avatar">JA</div><div><strong>Jonayed Ahmed</strong><span>SEO Expert</span></div></div></div>
+
+</aside>
+
+<main class="main">
+
+<header class="top">
+
+<div>
+<button class="outline menu" id="menu">☰</button>
+<h1>Social SEO</h1>
+<p>Open Graph and social sharing optimization</p>
+</div>
+
+<div class="actions">
+<button class="outline" onclick="location.href='index.html'">SEO Overview</button>
+<button class="outline" onclick="toggleTheme()">◐</button>
+</div>
+
+</header>
+
+<div class="content">
+
+<div class="breadcrumb">Dashboard / SEO Management / Social SEO</div>
+
+<div class="heading">
+<div>
+<h2>Social SEO</h2>
+<p>Control how your pages appear when shared on social platforms.</p>
+</div>
+<button class="btn" onclick="saveSocial()">Save Changes</button>
+</div>
+
+<div class="grid two">
+
+<div class="card">
+
+<h3>Open Graph Settings</h3>
+
+<div class="field">
+<label>OG Title <span class="counter"><span id="tc">0</span>/95</span></label>
+<input id="title" maxlength="95" value="Jonayed Ahmed | SEO Expert & Digital Marketing Specialist">
+</div>
+
+<div class="field">
+<label>OG Description <span class="counter"><span id="dc">0</span>/200</span></label>
+<textarea id="desc" maxlength="200">SEO Expert specializing in Technical SEO, Keyword Research and On-Page Optimization.</textarea>
+</div>
+
+<div class="field">
+<label>OG Image URL</label>
+<input id="image" value="https://jonyedahmed420-rgb.github.io/og-image.png">
+</div>
+
+<div class="field">
+<label>Facebook / Open Graph URL</label>
+<input id="url" value="https://jonyedahmed420-rgb.github.io/">
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Social Preview</h3>
+
+<div class="preview">
+
+<div class="image">JONAYED AHMED</div>
+
+<div class="social-title" id="previewTitle"></div>
+
+<div class="social-desc" id="previewDesc"></div>
+
+<div style="font-size:10px;color:#94a3b8;margin-top:8px">
+jonyedahmed420-rgb.github.io
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="card" style="margin-top:18px">
+
+<h3>Twitter / X Card</h3>
+
+<div class="grid two">
+
+<div>
+
+<div class="field">
+<label>Twitter Card Type</label>
+<select id="card" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--text)">
+<option>summary_large_image</option>
+<option>summary</option>
+</select>
+</div>
+
+<div class="field">
+<label>Twitter Title</label>
+<input id="twitterTitle" value="Jonayed Ahmed | SEO Expert">
+</div>
+
+<div class="field">
+<label>Twitter Description</label>
+<textarea id="twitterDesc">SEO expert helping businesses improve Google rankings and organic traffic.</textarea>
+</div>
+
+</div>
+
+<div>
+
+<div style="padding:15px;background:#0f172a;color:white;border-radius:10px">
+<div style="font-size:10px;color:#94a3b8">X / Twitter Card</div>
+<div style="height:130px;background:linear-gradient(135deg,#1e293b,#0284c7);border-radius:7px;margin:10px 0;display:grid;place-items:center;font-weight:700">JONAYED AHMED</div>
+<strong id="twitterPreview">Jonayed Ahmed | SEO Expert</strong>
+<p style="font-size:10px;color:#cbd5e1;margin-top:5px">SEO expert helping businesses improve Google rankings and organic traffic.</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">© 2026 Jonayed Ahmed · SEO Command Center</div>
+
+</div>
+</main>
+</div>
+
+<script>
+
+const sidebar=document.getElementById("sidebar");
+
+document.getElementById("menu")?.addEventListener("click",()=>{
+sidebar.classList.toggle("open");
+});
+
+const title=document.getElementById("title");
+const desc=document.getElementById("desc");
+
+function update(){
+
+document.getElementById("tc").textContent=title.value.length;
+document.getElementById("dc").textContent=desc.value.length;
+
+document.getElementById("previewTitle").textContent=title.value;
+document.getElementById("previewDesc").textContent=desc.value;
+
+document.getElementById("twitterPreview").textContent=
+document.getElementById("twitterTitle").value;
+}
+
+title.addEventListener("input",update);
+desc.addEventListener("input",update);
+document.getElementById("twitterTitle").addEventListener("input",update);
+
+function saveSocial(){
+
+localStorage.setItem("og_title",title.value);
+localStorage.setItem("og_description",desc.value);
+localStorage.setItem("og_image",document.getElementById("image").value);
+localStorage.setItem("twitter_title",document.getElementById("twitterTitle").value);
+
+alert("Social SEO settings saved locally.");
+
+}
+
+function toggleTheme(){
+
+const r=document.documentElement;
+const dark=r.dataset.theme==="dark";
+
+if(dark){
+r.dataset.theme="";
+r.style.setProperty("--bg","#f5f7fb");
+r.style.setProperty("--card","#fff");
+r.style.setProperty("--text","#0f172a");
+r.style.setProperty("--muted","#64748b");
+r.style.setProperty("--line","#e2e8f0");
+}else{
+r.dataset.theme="dark";
+r.style.setProperty("--bg","#080d18");
+r.style.setProperty("--card","#111827");
+r.style.setProperty("--text","#f8fafc");
+r.style.setProperty("--muted","#94a3b8");
+r.style.setProperty("--line","#263244");
+}
+}
+
+update();
+
+</script>
+
+</body>
+</html>
