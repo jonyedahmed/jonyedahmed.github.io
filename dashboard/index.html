@@ -52,8 +52,8 @@ button{font:inherit}
 .content{padding:28px 30px 45px;max-width:1500px;margin:auto}
 .welcome{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}.welcome h2{font-size:24px;color:var(--text)}.welcome p{color:var(--muted);font-size:13px;margin-top:3px}
 .primary{background:var(--primary);color:#fff;border:0;border-radius:9px;padding:11px 16px;font-weight:600;cursor:pointer}.primary:hover{background:var(--primary2)}
-.grid{display:grid;gap:18px}.stats{grid-template-columns:repeat(4,1fr)}.two{grid-template-columns:1.5fr 1fr}.three{grid-template-columns:repeat(3,1fr)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);padding:20px}
+.grid{display:grid;gap:18px}.stats{grid-template-columns:repeat(4,1fr)}.two{grid-template-columns:1.5fr 1fr}.three{grid-template-columns:repeat(3,1fr)}.form-grid{grid-template-columns:1fr 1fr}
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);padding:20px;margin-bottom:0}
 .stat{position:relative;overflow:hidden}.stat-top{display:flex;justify-content:space-between;align-items:center}.stat-label{font-size:12px;color:var(--muted);font-weight:600}.stat-icon{width:34px;height:34px;border-radius:9px;background:#e0f2fe;color:var(--primary);display:grid;place-items:center;font-size:15px}.stat-value{font-size:28px;font-weight:800;margin:10px 0 4px;color:var(--text)}.change{font-size:11px;font-weight:700}.up{color:var(--good)}.down{color:var(--bad)}.muted{color:var(--muted)}
 .section{margin-top:22px}.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}.section-head h3{font-size:16px;color:var(--text)}.section-head span{font-size:11px;color:var(--muted)}
 .chart{height:260px;position:relative;display:flex;align-items:end;gap:9px;padding:20px 5px 25px;background:linear-gradient(to bottom,transparent 0 24%,#f1f5f9 25% 25.5%,transparent 25.5% 49%,#f1f5f9 49.5% 50%,transparent 50% 74%,#f1f5f9 74.5% 75%,transparent 75%);border-radius:10px}
@@ -67,8 +67,27 @@ table{width:100%;border-collapse:collapse;font-size:12px}th{text-align:left;colo
 .check{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:12px;color:var(--text)}.check:last-child{border:0}.check-icon{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:11px}.check.ok .check-icon{background:#dcfce7;color:#166534}.check.warn .check-icon{background:#fef3c7;color:#92400e}
 .footer{padding:22px 0;color:#94a3b8;font-size:11px;text-align:center}
 .toast{position:fixed;right:24px;bottom:24px;background:#0f172a;color:#fff;padding:12px 16px;border-radius:9px;font-size:12px;opacity:0;transform:translateY(12px);pointer-events:none;transition:.25s;z-index:50}.toast.show{opacity:1;transform:translateY(0)}
-@media(max-width:1100px){.stats{grid-template-columns:repeat(2,1fr)}.two,.three{grid-template-columns:1fr}}
-@media(max-width:800px){.sidebar{transform:translateX(-100%);transition:.25s}.sidebar.open{transform:translateX(0)}.main{margin-left:0;width:100%}.mobile-menu{display:block}.topbar{padding:0 16px}.content{padding:22px 16px}.top-actions .outline-btn{display:none}.welcome{align-items:flex-start;gap:12px}.welcome h2{font-size:20px}.welcome .primary{padding:9px 11px}.stats{grid-template-columns:1fr 1fr}.card{padding:16px}}
+
+/* Form & Editor Styles */
+.field{margin-bottom:15px}.field label{display:block;font-size:11px;color:var(--muted);margin-bottom:6px;font-weight:600}
+input,textarea,select{width:100%;padding:10px;border:1px solid var(--line);background:var(--soft);color:var(--text);border-radius:8px;font-family:inherit;font-size:12px;outline:none;transition:.2s}
+input:focus,textarea:focus,select:focus{border-color:var(--primary);background:var(--card)}
+textarea{min-height:80px;resize:vertical}
+.code-editor{font-family:monospace;min-height:160px;background:#0b1220;color:#e2e8f0;border-color:#263244}
+.body.dark .code-editor{background:#020617}
+.snippet-preview{border:1px solid var(--line);padding:16px;border-radius:8px;background:var(--soft)}
+.snippet-url{color:var(--good);font-size:12px;margin-bottom:4px}
+.snippet-title{color:#1a0dab;font-size:18px;margin-bottom:4px;cursor:pointer}
+body.dark .snippet-title{color:#8ab4f8}
+.snippet-desc{color:var(--muted);font-size:13px;line-height:1.4}
+.counter{float:right;color:var(--muted);font-weight:400}
+.type-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:15px}
+.type-btn{padding:10px;border:1px solid var(--line);border-radius:8px;cursor:pointer;text-align:center;font-size:11px;background:var(--soft)}
+.type-btn.active{border-color:var(--primary);background:var(--card);color:var(--primary);font-weight:700}
+.del{color:var(--bad);cursor:pointer;font-weight:700}
+
+@media(max-width:1100px){.stats{grid-template-columns:repeat(2,1fr)}.two,.three,.form-grid{grid-template-columns:1fr}}
+@media(max-width:800px){.sidebar{transform:translateX(-100%);transition:.25s}.sidebar.open{transform:translateX(0)}.main{margin-left:0;width:100%}.mobile-menu{display:block}.topbar{padding:0 16px}.content{padding:22px 16px}.top-actions .outline-btn{display:none}.welcome{align-items:flex-start;gap:12px}.welcome h2{font-size:20px}.welcome .primary{padding:9px 11px}.stats{grid-template-columns:1fr 1fr}.card{padding:16px}.type-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.stats{grid-template-columns:1fr}.topbar{height:62px}.page-title p{display:none}.stat-value{font-size:25px}.welcome{flex-direction:column}.welcome .primary{width:100%}}
 </style>
 </head>
@@ -91,10 +110,19 @@ table{width:100%;border-collapse:collapse;font-size:12px}th{text-align:left;colo
     <a href="#projects"><span class="icon">▣</span>Projects & Clients</a>
 
     <div class="nav-title" style="margin-top:18px">SEO Management</div>
+    <a href="#meta-seo"><span class="icon">✎</span>Meta SEO Editor</a>
+    <a href="#social-seo"><span class="icon">◈</span>Social SEO</a>
+    <a href="#schema"><span class="icon">{ }</span>Schema Generator</a>
+    <a href="#backlinks"><span class="icon">↗</span>Backlinks</a>
     <a href="#audit"><span class="icon">✓</span>SEO Audit</a>
     <a href="#reports"><span class="icon">▤</span>Reports</a>
     <a href="#portfolio"><span class="icon">◆</span>Portfolio</a>
     <a href="#leads"><span class="icon">✉</span>Leads</a>
+
+    <div class="nav-title" style="margin-top:18px">Technical</div>
+    <a href="#sitemap"><span class="icon">▤</span>Sitemap</a>
+    <a href="#robots"><span class="icon">◉</span>Robots.txt</a>
+    <a href="#redirects"><span class="icon">↪</span>Redirects</a>
 
     <div class="nav-title" style="margin-top:18px">Account</div>
     <a href="#github"><span class="icon">◉</span>GitHub</a>
@@ -179,6 +207,142 @@ table{width:100%;border-collapse:collapse;font-size:12px}th{text-align:left;colo
    <div class="check ok"><span class="check-icon">✓</span>Internal linking <span class="tag good" style="margin-left:auto">Good</span></div>
   </div>
  </div>
+</section>
+
+<!-- META SEO SECTION -->
+<section class="section" id="meta-seo">
+  <div class="grid two">
+    <div class="card">
+      <div class="section-head"><h3>Meta SEO Editor</h3><span>On-Page Optimization</span></div>
+      <div class="field">
+        <label>Focus Keyword</label>
+        <input type="text" value="seo expert bangladesh">
+      </div>
+      <div class="field">
+        <label>Meta Title <span class="counter" id="titleCount">52 / 60</span></label>
+        <input type="text" id="metaTitle" value="Jonayed Ahmed | #1 SEO Expert in Bangladesh" oninput="updateMetaPreview()">
+      </div>
+      <div class="field">
+        <label>Meta Description <span class="counter" id="descCount">155 / 160</span></label>
+        <textarea id="metaDesc" rows="3" oninput="updateMetaPreview()">Looking for a top-rated SEO expert in Bangladesh? Jonayed Ahmed helps businesses rank higher, increase traffic, and boost revenue.</textarea>
+      </div>
+      <div class="field">
+        <label>Canonical URL</label>
+        <input type="text" value="https://jonayed.com/seo-expert">
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-head"><h3>Google Search Preview</h3><span>Mobile view</span></div>
+      <div class="snippet-preview">
+        <div class="snippet-url" id="prevUrl">https://jonayed.com › seo-expert</div>
+        <div class="snippet-title" id="prevTitle">Jonayed Ahmed | #1 SEO Expert in Bangladesh</div>
+        <div class="snippet-desc" id="prevDesc">Looking for a top-rated SEO expert in Bangladesh? Jonayed Ahmed helps businesses rank higher, increase traffic, and boost revenue.</div>
+      </div>
+      <div style="margin-top:20px">
+        <div class="section-head"><h3>SEO Analysis</h3></div>
+        <div class="check ok"><span class="check-icon">✓</span>Focus keyword in Title</div>
+        <div class="check ok"><span class="check-icon">✓</span>Focus keyword in Description</div>
+        <div class="check ok"><span class="check-icon">✓</span>Title length is optimal</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL SEO SECTION -->
+<section class="section" id="social-seo">
+  <div class="card">
+    <div class="section-head"><h3>Social Media SEO (Open Graph)</h3><span>Facebook & Twitter Previews</span></div>
+    <div class="grid form-grid">
+      <div class="field"><label>OG Title</label><input type="text" value="Hire the Best SEO Expert in Bangladesh"></div>
+      <div class="field"><label>OG Type</label><select><option>Website</option><option>Article</option><option>Product</option></select></div>
+      <div class="field" style="grid-column:1 / -1"><label>OG Description</label><textarea rows="2">Drive organic traffic and dominate Google search results with expert SEO services.</textarea></div>
+      <div class="field" style="grid-column:1 / -1"><label>OG Image URL</label><input type="text" value="https://jonayed.com/images/og-banner.jpg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEMA GENERATOR SECTION -->
+<section class="section" id="schema">
+  <div class="grid two">
+    <div class="card">
+      <div class="section-head"><h3>Schema Type</h3></div>
+      <div class="type-grid">
+        <div class="type-btn active" onclick="changeSchema(this, 'Person')">Person</div>
+        <div class="type-btn" onclick="changeSchema(this, 'Organization')">Organization</div>
+        <div class="type-btn" onclick="changeSchema(this, 'Service')">Service</div>
+      </div>
+      <div class="field"><label>Name</label><input type="text" value="Jonayed Ahmed" oninput="generateSchema()"></div>
+      <div class="field"><label>Job Title</label><input type="text" value="SEO Expert" oninput="generateSchema()"></div>
+      <div class="field"><label>URL</label><input type="text" value="https://jonayed.com" oninput="generateSchema()"></div>
+    </div>
+    <div class="card">
+      <div class="section-head"><h3>Generated JSON-LD</h3><button class="outline-btn" onclick="toast('Schema copied to clipboard!')">Copy Code</button></div>
+      <textarea class="code-editor" id="schemaOutput"></textarea>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNICAL: SITEMAP & ROBOTS -->
+<section class="section" id="sitemap">
+  <div class="card">
+    <div class="section-head"><h3>Sitemap Manager</h3><span class="tag good">Valid</span></div>
+    <div class="field"><label>Sitemap URL</label><input type="text" value="https://jonayed.com/sitemap.xml" readonly></div>
+    <table>
+      <thead><tr><th>URL</th><th>Last Updated</th><th>Priority</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>/</td><td>2024-05-20</td><td>1.0</td><td><span class="tag good">Indexed</span></td></tr>
+        <tr><td>/services</td><td>2024-05-18</td><td>0.9</td><td><span class="tag good">Indexed</span></td></tr>
+        <tr><td>/blog/seo-guide</td><td>2024-05-15</td><td>0.8</td><td><span class="tag blue">Pending</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="robots">
+  <div class="card">
+    <div class="section-head"><h3>Robots.txt Editor</h3><button class="primary" onclick="toast('Robots.txt saved successfully!')">Save Changes</button></div>
+    <textarea class="code-editor">User-agent: *
+Disallow: /wp-admin/
+Disallow: /cart/
+Allow: /wp-admin/admin-ajax.php
+
+Sitemap: https://jonayed.com/sitemap.xml</textarea>
+  </div>
+</section>
+
+<!-- REDIRECTS & BACKLINKS -->
+<section class="section" id="redirects">
+  <div class="card">
+    <div class="section-head"><h3>Redirect Manager</h3><button class="primary" onclick="toast('Redirect added!')">+ Add Redirect</button></div>
+    <table>
+      <thead><tr><th>Old URL</th><th>New URL</th><th>Type</th><th>Hits</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td>/old-home</td><td>/</td><td><span class="tag blue">301</span></td><td>1,245</td><td><span class="del">Delete</span></td></tr>
+        <tr><td>/blog/seo-tips</td><td>/blog/seo-guide</td><td><span class="tag blue">301</span></td><td>342</td><td><span class="del">Delete</span></td></tr>
+        <tr><td>/promo</td><td>/landing-page</td><td><span class="tag orange">302</span></td><td>89</td><td><span class="del">Delete</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="backlinks">
+  <div class="card">
+    <div class="section-head"><h3>Backlink Profile</h3><span>Top referring domains</span></div>
+    <div class="grid stats" style="margin-bottom:15px">
+      <div><strong style="font-size:18px">1,840</strong><br><span class="muted" style="font-size:11px">Total Backlinks</span></div>
+      <div><strong style="font-size:18px">315</strong><br><span class="muted" style="font-size:11px">Referring Domains</span></div>
+      <div><strong style="font-size:18px">45</strong><br><span class="muted" style="font-size:11px">Domain Authority</span></div>
+      <div><strong style="font-size:18px;color:var(--bad)">12</strong><br><span class="muted" style="font-size:11px">Lost Backlinks</span></div>
+    </div>
+    <table>
+      <thead><tr><th>Source URL</th><th>Target Page</th><th>DA</th><th>Type</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>bloggersphere.com/seo</td><td>/blog/seo-guide</td><td>55</td><td><span class="tag good">Dofollow</span></td><td><span class="tag blue">Active</span></td></tr>
+        <tr><td>technews.com/best-tools</td><td>/services</td><td>72</td><td><span class="tag good">Dofollow</span></td><td><span class="tag blue">Active</span></td></tr>
+        <tr><td>forum.marketing.com</td><td>/about</td><td>32</td><td><span class="tag orange">Nofollow</span></td><td><span class="tag blue">Active</span></td></tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
 <section class="section" id="keywords">
@@ -335,6 +499,46 @@ document.querySelectorAll('.nav a').forEach(a=>{
     a.classList.add('active');
   });
 });
+
+// Meta SEO Live Preview
+function updateMetaPreview() {
+  const title = document.getElementById('metaTitle').value;
+  const desc = document.getElementById('metaDesc').value;
+  document.getElementById('prevTitle').innerText = title;
+  document.getElementById('prevDesc').innerText = desc;
+  document.getElementById('titleCount').innerText = title.length + ' / 60';
+  document.getElementById('descCount').innerText = desc.length + ' / 160';
+}
+
+// Schema Generator
+function generateSchema() {
+  const name = document.querySelectorAll('#schema input')[1].value;
+  const jobTitle = document.querySelectorAll('#schema input')[2].value;
+  const url = document.querySelectorAll('#schema input')[3].value;
+  const activeType = document.querySelector('.type-btn.active').innerText;
+
+  let schema = {};
+  if(activeType === 'Person') {
+    schema = { "@context": "https://schema.org", "@type": "Person", "name": name, "jobTitle": jobTitle, "url": url };
+  } else if(activeType === 'Organization') {
+    schema = { "@context": "https://schema.org", "@type": "Organization", "name": name, "url": url };
+  } else {
+    schema = { "@context": "https://schema.org", "@type": "Service", "provider": { "@type": "Person", "name": name }, "serviceType": jobTitle, "url": url };
+  }
+  document.getElementById('schemaOutput').value = JSON.stringify(schema, null, 2);
+}
+
+function changeSchema(btn, type) {
+  document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  generateSchema();
+}
+
+// Initialize functions
+window.onload = () => {
+  updateMetaPreview();
+  generateSchema();
+};
 </script>
 </body>
 </html>
