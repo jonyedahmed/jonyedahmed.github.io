@@ -96,12 +96,15 @@
         .client-info strong { display: block; font-size: 0.95rem; }
         .client-info span { font-size: 0.85rem; color: var(--text-muted); }
         
-        /* CTA SECTION */
+        /* CTA SECTION & FORM */
         .cta-section { background: var(--primary); border-radius: 16px; padding: 4rem 2rem; text-align: center; margin: 4rem 0; }
         .cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; color: white; }
         .cta-section p { color: rgba(255, 255, 255, 0.9); font-size: 1.1rem; max-width: 500px; margin: 0 auto 2rem; }
-        .cta-section .btn { background: white; color: var(--primary); }
-        .cta-section .btn:hover { background: #f1f5f9; transform: translateY(-2px); }
+        .cta-form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+        .cta-form input, .cta-form textarea { width: 100%; padding: 0.85rem 1rem; border: none; border-radius: 8px; background: rgba(255, 255, 255, 0.95); color: #0f172a; font-size: 0.95rem; outline: none; font-family: inherit; }
+        .cta-form textarea { min-height: 100px; resize: vertical; }
+        .cta-form button { background: #0f172a; color: white; border: none; border-radius: 8px; padding: 0.85rem 1.5rem; font-weight: 600; font-size: 1rem; cursor: pointer; transition: background 0.2s ease, transform 0.2s ease; }
+        .cta-form button:hover { background: #1e293b; transform: translateY(-2px); }
         
         /* FLOATING CHAT BUBBLE */
         .chat-bubble { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; cursor: pointer; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.5); transition: transform 0.2s; z-index: 99; text-decoration: none; }
@@ -285,7 +288,16 @@
         <div class="cta-section">
             <h2>Ready to Grow Your Organic Traffic?</h2>
             <p>Get a free comprehensive SEO audit. Find out exactly what's holding your website back from ranking #1.</p>
-            <a href="mailto:hello@jonayed.com" class="btn">Request Your Free Audit</a>
+            <form class="cta-form" action="https://formsubmit.co/hello@jonayed.com" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Best Email Address" required>
+                <input type="text" name="website" placeholder="Your Website URL (e.g., https://yoursite.com)">
+                <textarea name="message" placeholder="Tell me briefly about your SEO goals..." required></textarea>
+                <input type="hidden" name="_subject" value="New SEO Audit Request from Landing Page!">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                <button type="submit">Request Your Free Audit →</button>
+            </form>
         </div>
     </section>
 
