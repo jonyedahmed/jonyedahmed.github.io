@@ -1,1271 +1,532 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jonayed Ahmed - Expert SEO Consultant helping businesses rank higher, drive organic traffic, and grow revenue.">
+    <title>Jonayed Ahmed | SEO Expert & Consultant</title>
+    
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --border: #334155;
+        }
 
-<meta charset="UTF-8">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
 
-<meta name="robots"
-      content="noindex,nofollow">
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
 
-<title>SEO Dashboard | Jonayed Ahmed</title>
+        /* NAVBAR */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 1rem 0;
+        }
 
-<link rel="stylesheet"
-      href="assets/css/dashboard.css">
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--card);
+            border-color: var(--text-muted);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* SECTION HEADINGS */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* STATS GRID */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0.5rem 0;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-change {
+            font-size: 0.85rem;
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        /* SERVICES GRID */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.2s;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary);
+            background: #243449;
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* CASE STUDIES / PROJECTS */
+        .projects-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .project-item {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .project-logo {
+            width: 50px;
+            height: 50px;
+            background: var(--border);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--text);
+            flex-shrink: 0;
+        }
+
+        .project-info h4 {
+            font-size: 1.1rem;
+        }
+
+        .project-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-success { background: rgba(16, 185, 129, 0.1); color: var(--success); }
+        .badge-warning { background: rgba(245, 158, 11, 0.1); color: var(--warning); }
+
+        /* CTA SECTION */
+        .cta-section {
+            background: var(--primary);
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-section .btn {
+            background: white;
+            color: var(--primary);
+        }
+
+        .cta-section .btn:hover {
+            background: #f1f5f9;
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.25rem; }
+            .projects-list { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="app">
-
-<!-- ================= SIDEBAR ================= -->
-
-<aside class="sidebar" id="sidebar">
-
-    <div class="sidebar-brand">
-
-        <div class="brand-logo small">
-            JA
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="container nav-inner">
+            <a href="#" class="brand">
+                <div class="brand-logo">JA</div>
+                Jonayed Ahmed
+            </a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#work">Case Studies</a></li>
+                <li><a href="#contact" class="btn btn-primary">Get Audit</a></li>
+            </ul>
         </div>
-
-        <div>
-            <strong>SEO Command</strong>
-            <span>Jonayed Ahmed</span>
-        </div>
-
-    </div>
-
-
-    <nav class="sidebar-nav">
-
-        <div class="nav-label">
-            MAIN
-        </div>
-
-        <a href="index.html"
-           class="nav-link active">
-
-            <span class="nav-icon">▦</span>
-
-            <span>Dashboard</span>
-
-        </a>
-
-
-        <div class="nav-label">
-            SEO MANAGEMENT
-        </div>
-
-
-        <a href="seo/index.html"
-           class="nav-link">
-
-            <span class="nav-icon">⌁</span>
-
-            <span>SEO Overview</span>
-
-        </a>
-
-
-        <a href="seo/meta.html"
-           class="nav-link">
-
-            <span class="nav-icon">✎</span>
-
-            <span>Meta SEO</span>
-
-        </a>
-
-
-        <a href="seo/keywords.html"
-           class="nav-link">
-
-            <span class="nav-icon">⌕</span>
-
-            <span>Keywords</span>
-
-        </a>
-
-
-        <a href="seo/schema.html"
-           class="nav-link">
-
-            <span class="nav-icon">{ }</span>
-
-            <span>Schema</span>
-
-        </a>
-
-
-        <a href="seo/social.html"
-           class="nav-link">
-
-            <span class="nav-icon">◈</span>
-
-            <span>Social SEO</span>
-
-        </a>
-
-
-        <div class="nav-label">
-            TECHNICAL SEO
-        </div>
-
-
-        <a href="technical/index.html"
-           class="nav-link">
-
-            <span class="nav-icon">✓</span>
-
-            <span>Technical SEO</span>
-
-        </a>
-
-
-        <a href="technical/sitemap.html"
-           class="nav-link">
-
-            <span class="nav-icon">▤</span>
-
-            <span>Sitemap</span>
-
-        </a>
-
-
-        <a href="technical/robots.html"
-           class="nav-link">
-
-            <span class="nav-icon">◉</span>
-
-            <span>Robots.txt</span>
-
-        </a>
-
-
-        <a href="technical/redirects.html"
-           class="nav-link">
-
-            <span class="nav-icon">↪</span>
-
-            <span>Redirects</span>
-
-        </a>
-
-
-        <div class="nav-label">
-            BUSINESS
-        </div>
-
-
-        <a href="projects/index.html"
-           class="nav-link">
-
-            <span class="nav-icon">▣</span>
-
-            <span>Projects & Clients</span>
-
-        </a>
-
-
-        <a href="analytics/index.html"
-           class="nav-link">
-
-            <span class="nav-icon">◔</span>
-
-            <span>Analytics</span>
-
-        </a>
-
-
-        <a href="backlinks/index.html"
-           class="nav-link">
-
-            <span class="nav-icon">↗</span>
-
-            <span>Backlinks</span>
-
-        </a>
-
-
-        <a href="reports/index.html"
-           class="nav-link">
-
-            <span class="nav-icon">▤</span>
-
-            <span>Reports</span>
-
-        </a>
-
-
-        <div class="nav-label">
-            ACCOUNT
-        </div>
-
-
-        <a href="profile/index.html"
-           class="nav-link">
-
-            <span class="nav-icon">●</span>
-
-            <span>Profile</span>
-
-        </a>
-
-
-        <a href="settings/index.html"
-           class="nav-link">
-
-            <span class="nav-icon">⚙</span>
-
-            <span>Settings</span>
-
-        </a>
-
     </nav>
 
+    <!-- HERO SECTION -->
+    <header class="hero container">
+        <h1>Rank Higher. Grow Faster.</h1>
+        <p>Hi, I'm Jonayed Ahmed. I help businesses dominate search engines through data-driven technical SEO, strategic content, and authoritative link building.</p>
+        <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Get Free SEO Audit</a>
+            <a href="#work" class="btn btn-secondary">View Case Studies</a>
+        </div>
+    </header>
 
-    <div class="sidebar-bottom">
-
-        <div class="mini-profile">
-
-            <div class="avatar">
-                JA
+    <!-- PROVEN RESULTS (Stats Repurposed) -->
+    <section class="section" id="results">
+        <div class="container">
+            <div class="section-header">
+                <h2>Proven Results</h2>
+                <p>Real growth metrics achieved for clients over the last 30 days.</p>
             </div>
-
-            <div>
-                <strong>Jonayed Ahmed</strong>
-                <span>SEO Expert</span>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-label">Organic Clicks</span>
+                    <span class="stat-number">1,284</span>
+                    <span class="stat-change">↑ 18.4% vs last month</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Impressions</span>
+                    <span class="stat-number">48.7K</span>
+                    <span class="stat-change">↑ 12.7% vs last month</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Avg. Position</span>
+                    <span class="stat-number">8.6</span>
+                    <span class="stat-change">↑ 2.1 positions</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Organic CTR</span>
+                    <span class="stat-number">4.92%</span>
+                    <span class="stat-change">↑ 0.8% vs last month</span>
+                </div>
             </div>
-
         </div>
+    </section>
 
-        <button
-            class="logout-btn"
-            id="logoutBtn">
-
-            ⇥ Logout
-
-        </button>
-
-    </div>
-
-</aside>
-
-
-<!-- ================= MAIN ================= -->
-
-<main class="main">
-
-
-<!-- TOPBAR -->
-
-<header class="topbar">
-
-    <div class="topbar-left">
-
-        <button
-            class="mobile-menu"
-            id="menuBtn">
-
-            ☰
-
-        </button>
-
-        <div>
-
-            <h1>
-                SEO Dashboard
-            </h1>
-
-            <p>
-                Performance & growth command center
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="topbar-actions">
-
-        <button
-            class="top-button"
-            id="siteButton">
-
-            ↗
-            <span>View Website</span>
-
-        </button>
-
-
-        <button
-            class="top-icon"
-            id="themeBtn"
-            title="Toggle theme">
-
-            ◐
-
-        </button>
-
-
-        <button
-            class="top-icon"
-            id="refreshBtn"
-            title="Refresh dashboard">
-
-            ↻
-
-        </button>
-
-
-        <div class="user-menu">
-
-            <div class="avatar">
-                JA
+    <!-- SERVICES (Quick Actions Repurposed) -->
+    <section class="section" id="services" style="background: #131c31;">
+        <div class="container">
+            <div class="section-header">
+                <h2>SEO Management Services</h2>
+                <p>Comprehensive search engine optimization tailored to your business goals.</p>
             </div>
-
-            <div class="user-info">
-
-                <strong>
-                    Jonayed Ahmed
-                </strong>
-
-                <span>
-                    SEO Expert
-                </span>
-
+            <div class="services-grid">
+                <a href="#" class="service-card">
+                    <div class="service-icon">✎</div>
+                    <h3>Meta SEO Optimization</h3>
+                    <p>Crafting compelling titles and descriptions to improve click-through rates and relevancy.</p>
+                </a>
+                <a href="#" class="service-card">
+                    <div class="service-icon">⌕</div>
+                    <h3>Keyword Research</h3>
+                    <p>Identifying high-intent, low-competition keywords to drive targeted organic traffic.</p>
+                </a>
+                <a href="#" class="service-card">
+                    <div class="service-icon">{ }</div>
+                    <h3>Schema Markup</h3>
+                    <p>Implementing structured data to help search engines understand your content better.</p>
+                </a>
+                <a href="#" class="service-card">
+                    <div class="service-icon">✓</div>
+                    <h3>Technical SEO</h3>
+                    <p>Fixing core web vitals, site speed, and crawlability to ensure peak performance.</p>
+                </a>
             </div>
-
         </div>
-
-    </div>
-
-</header>
-
-
-<!-- CONTENT -->
-
-<div class="content">
-
-
-<!-- WELCOME -->
-
-<section class="welcome">
-
-    <div>
-
-        <div class="breadcrumb">
-            Dashboard / Overview
-        </div>
-
-        <h2>
-            Good morning, Jonayed 👋
-        </h2>
-
-        <p>
-            Here's what's happening with your SEO performance.
-        </p>
-
-    </div>
-
-
-    <div class="welcome-actions">
-
-        <button
-            class="secondary-button"
-            id="connectButton">
-
-            + Connect Data
-
-        </button>
-
-        <a
-            href="seo/meta.html"
-            class="primary-button">
-
-            + Add SEO Data
-
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- ================= STATS ================= -->
-
-<section class="stats-grid">
-
-
-<div class="stat-card">
-
-    <div class="stat-header">
-
-        <span>
-            Organic Clicks
-        </span>
-
-        <div class="stat-icon blue">
-            ↗
-        </div>
-
-    </div>
-
-    <strong class="stat-number">
-        1,284
-    </strong>
-
-    <div class="stat-change positive">
-        ↑ 18.4%
-        <span>vs last month</span>
-    </div>
-
-</div>
-
-
-<div class="stat-card">
-
-    <div class="stat-header">
-
-        <span>
-            Impressions
-        </span>
-
-        <div class="stat-icon purple">
-            ◉
-        </div>
-
-    </div>
-
-    <strong class="stat-number">
-        48.7K
-    </strong>
-
-    <div class="stat-change positive">
-        ↑ 12.7%
-        <span>vs last month</span>
-    </div>
-
-</div>
-
-
-<div class="stat-card">
-
-    <div class="stat-header">
-
-        <span>
-            Average Position
-        </span>
-
-        <div class="stat-icon orange">
-            #
-        </div>
-
-    </div>
-
-    <strong class="stat-number">
-        8.6
-    </strong>
-
-    <div class="stat-change positive">
-        ↑ 2.1
-        <span>positions</span>
-    </div>
-
-</div>
-
-
-<div class="stat-card">
-
-    <div class="stat-header">
-
-        <span>
-            Organic CTR
-        </span>
-
-        <div class="stat-icon green">
-            %
-        </div>
-
-    </div>
-
-    <strong class="stat-number">
-        4.92%
-    </strong>
-
-    <div class="stat-change positive">
-        ↑ 0.8%
-        <span>vs last month</span>
-    </div>
-
-</div>
-
-
-</section>
-
-
-<!-- ================= PERFORMANCE ================= -->
-
-<section class="dashboard-grid two-column">
-
-
-<div class="dashboard-card">
-
-    <div class="card-header">
-
-        <div>
-
-            <h3>
-                Search Performance
-            </h3>
-
-            <p>
-                Organic search clicks
-            </p>
-
-        </div>
-
-        <select class="select-control">
-
-            <option>
-                Last 28 days
-            </option>
-
-            <option>
-                Last 7 days
-            </option>
-
-            <option>
-                Last 3 months
-            </option>
-
-        </select>
-
-    </div>
-
-
-    <div class="chart">
-
-        <div class="chart-grid"></div>
-
-        <div class="bars">
-
-            <i style="height:32%"></i>
-            <i style="height:43%"></i>
-            <i style="height:38%"></i>
-            <i style="height:51%"></i>
-            <i style="height:48%"></i>
-            <i style="height:65%"></i>
-            <i style="height:58%"></i>
-            <i style="height:72%"></i>
-            <i style="height:61%"></i>
-            <i style="height:79%"></i>
-            <i style="height:69%"></i>
-            <i style="height:85%"></i>
-            <i style="height:77%"></i>
-            <i style="height:93%"></i>
-
-        </div>
-
-        <div class="chart-labels">
-
-            <span>Jul 24</span>
-            <span>Jul 31</span>
-            <span>Aug 07</span>
-            <span>Aug 20</span>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- SEO HEALTH -->
-
-<div class="dashboard-card">
-
-    <div class="card-header">
-
-        <div>
-
-            <h3>
-                SEO Health
-            </h3>
-
-            <p>
-                Overall website optimization
-            </p>
-
-        </div>
-
-        <span class="status-badge success">
-            Excellent
-        </span>
-
-    </div>
-
-
-    <div class="health-score">
-
-        <div class="score-circle">
-            <strong>92</strong>
-            <span>/100</span>
-        </div>
-
-        <div>
-
-            <strong>
-                Great SEO health
-            </strong>
-
-            <p>
-                Your website is well optimized.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="progress-row">
-
-        <div>
-            <span>
-                Technical SEO
-            </span>
-
-            <strong>95%</strong>
-        </div>
-
-        <div class="progress">
-            <i style="width:95%"></i>
-        </div>
-
-    </div>
-
-
-    <div class="progress-row">
-
-        <div>
-            <span>
-                On-Page SEO
-            </span>
-
-            <strong>91%</strong>
-        </div>
-
-        <div class="progress">
-            <i style="width:91%"></i>
-        </div>
-
-    </div>
-
-
-    <div class="progress-row">
-
-        <div>
-            <span>
-                Content SEO
-            </span>
-
-            <strong>89%</strong>
-        </div>
-
-        <div class="progress">
-            <i style="width:89%"></i>
-        </div>
-
-    </div>
-
-
-    <a
-        href="seo/index.html"
-        class="card-link">
-
-        View complete SEO analysis →
-        
-    </a>
-
-</div>
-
-
-</section>
-
-
-<!-- ================= SEO QUICK ACTIONS ================= -->
-
-<section class="section-block">
-
-    <div class="section-heading">
-
-        <div>
-
-            <h3>
-                SEO Management
-            </h3>
-
-            <p>
-                Quickly manage your website SEO settings.
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="quick-grid">
-
-
-        <a href="seo/meta.html"
-           class="quick-card">
-
-            <div class="quick-icon blue">
-                ✎
+    </section>
+
+    <!-- CASE STUDIES (Projects Repurposed) -->
+    <section class="section" id="work">
+        <div class="container">
+            <div class="section-header">
+                <h2>Active Client Success</h2>
+                <p>Businesses currently scaling their organic presence with my SEO command center.</p>
             </div>
-
-            <div>
-
-                <strong>
-                    Meta SEO
-                </strong>
-
-                <p>
-                    Edit titles & descriptions
-                </p>
-
+            <div class="projects-list">
+                <div class="project-item">
+                    <div class="project-logo">CC</div>
+                    <div class="project-info">
+                        <h4>Creatus Computer</h4>
+                        <p>E-commerce SEO &amp; Schema</p>
+                        <span class="badge badge-success">Traffic +40%</span>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-logo">TT</div>
+                    <div class="project-info">
+                        <h4>Trendtrek Digital</h4>
+                        <p>SEO &amp; Content Strategy</p>
+                        <span class="badge badge-success">Ranking Top 3</span>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-logo">SF</div>
+                    <div class="project-info">
+                        <h4>SIHA Bag Factory</h4>
+                        <p>E-commerce SEO Migration</p>
+                        <span class="badge badge-warning">In Progress</span>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-logo">AR</div>
+                    <div class="project-info">
+                        <h4>AR Plumbing Singapore</h4>
+                        <p>Local SEO &amp; Maps Ranking</p>
+                        <span class="badge badge-success">Leads +65%</span>
+                    </div>
+                </div>
             </div>
-
-            <span>
-                →
-            </span>
-
-        </a>
-
-
-        <a href="seo/keywords.html"
-           class="quick-card">
-
-            <div class="quick-icon purple">
-                ⌕
-            </div>
-
-            <div>
-
-                <strong>
-                    Keywords
-                </strong>
-
-                <p>
-                    Manage target keywords
-                </p>
-
-            </div>
-
-            <span>
-                →
-            </span>
-
-        </a>
-
-
-        <a href="seo/schema.html"
-           class="quick-card">
-
-            <div class="quick-icon orange">
-                { }
-            </div>
-
-            <div>
-
-                <strong>
-                    Schema
-                </strong>
-
-                <p>
-                    Manage structured data
-                </p>
-
-            </div>
-
-            <span>
-                →
-            </span>
-
-        </a>
-
-
-        <a href="technical/index.html"
-           class="quick-card">
-
-            <div class="quick-icon green">
-                ✓
-            </div>
-
-            <div>
-
-                <strong>
-                    Technical SEO
-                </strong>
-
-                <p>
-                    Check technical issues
-                </p>
-
-            </div>
-
-            <span>
-                →
-            </span>
-
-        </a>
-
-
-    </div>
-
-</section>
-
-
-<!-- ================= KEYWORDS + PROJECTS ================= -->
-
-<section class="dashboard-grid two-column">
-
-
-<div class="dashboard-card">
-
-    <div class="card-header">
-
-        <div>
-
-            <h3>
-                Keyword Rankings
-            </h3>
-
-            <p>
-                Top ranking opportunities
-            </p>
-
         </div>
+    </section>
 
-        <a
-            href="seo/keywords.html"
-            class="small-link">
-
-            View all
-
-        </a>
-
-    </div>
-
-
-    <div class="table-wrapper">
-
-        <table>
-
-            <thead>
-
-                <tr>
-
-                    <th>
-                        Keyword
-                    </th>
-
-                    <th>
-                        Position
-                    </th>
-
-                    <th>
-                        Change
-                    </th>
-
-                    <th>
-                        Status
-                    </th>
-
-                </tr>
-
-            </thead>
-
-            <tbody>
-
-                <tr>
-
-                    <td>
-                        <strong>
-                            SEO Expert Bangladesh
-                        </strong>
-                    </td>
-
-                    <td>
-                        #3
-                    </td>
-
-                    <td class="positive">
-                        ↑ 4
-                    </td>
-
-                    <td>
-                        <span class="status-badge success">
-                            Improving
-                        </span>
-                    </td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>
-                        Technical SEO Expert
-                    </td>
-
-                    <td>
-                        #6
-                    </td>
-
-                    <td class="positive">
-                        ↑ 2
-                    </td>
-
-                    <td>
-                        <span class="status-badge info">
-                            Stable
-                        </span>
-                    </td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>
-                        SEO Consultant Bangladesh
-                    </td>
-
-                    <td>
-                        #9
-                    </td>
-
-                    <td class="positive">
-                        ↑ 6
-                    </td>
-
-                    <td>
-                        <span class="status-badge success">
-                            Improving
-                        </span>
-                    </td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>
-                        Keyword Research Service
-                    </td>
-
-                    <td>
-                        #14
-                    </td>
-
-                    <td class="positive">
-                        ↑ 3
-                    </td>
-
-                    <td>
-                        <span class="status-badge warning">
-                            Opportunity
-                        </span>
-                    </td>
-
-                </tr>
-
-            </tbody>
-
-        </table>
-
-    </div>
-
-</div>
-
-
-<!-- PROJECTS -->
-
-<div class="dashboard-card">
-
-    <div class="card-header">
-
-        <div>
-
-            <h3>
-                Active Projects
-            </h3>
-
-            <p>
-                Current SEO clients
-            </p>
-
+    <!-- CTA SECTION -->
+    <section class="container" id="contact">
+        <div class="cta-section">
+            <h2>Ready to Grow Your Organic Traffic?</h2>
+            <p>Get a free comprehensive SEO audit. Find out exactly what's holding your website back from ranking #1.</p>
+            <a href="mailto:hello@jonayed.com" class="btn">Request Your Free Audit</a>
         </div>
+    </section>
 
-        <a
-            href="projects/index.html"
-            class="small-link">
-
-            View all
-
-        </a>
-
-    </div>
-
-
-    <div class="project-list">
-
-
-        <div class="project-item">
-
-            <div class="project-logo">
-                CC
-            </div>
-
-            <div>
-
-                <strong>
-                    Creatus Computer
-                </strong>
-
-                <p>
-                    E-commerce SEO
-                </p>
-
-            </div>
-
-            <span class="status-badge success">
-                Active
-            </span>
-
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>© 2024 Jonayed Ahmed · SEO Command Center. All rights reserved.</p>
         </div>
-
-
-        <div class="project-item">
-
-            <div class="project-logo">
-                TT
-            </div>
-
-            <div>
-
-                <strong>
-                    Trendtrek Digital
-                </strong>
-
-                <p>
-                    SEO & Content
-                </p>
-
-            </div>
-
-            <span class="status-badge success">
-                Active
-            </span>
-
-        </div>
-
-
-        <div class="project-item">
-
-            <div class="project-logo">
-                SF
-            </div>
-
-            <div>
-
-                <strong>
-                    SIHA Bag Factory
-                </strong>
-
-                <p>
-                    E-commerce SEO
-                </p>
-
-            </div>
-
-            <span class="status-badge warning">
-                Review
-            </span>
-
-        </div>
-
-
-        <div class="project-item">
-
-            <div class="project-logo">
-                AR
-            </div>
-
-            <div>
-
-                <strong>
-                    AR Plumbing Singapore
-                </strong>
-
-                <p>
-                    Local SEO
-                </p>
-
-            </div>
-
-            <span class="status-badge success">
-                Active
-            </span>
-
-        </div>
-
-
-    </div>
-
-</div>
-
-
-</section>
-
-
-<!-- ================= RECENT ACTIVITY ================= -->
-
-<section class="section-block">
-
-    <div class="section-heading">
-
-        <div>
-
-            <h3>
-                Recent SEO Activity
-            </h3>
-
-            <p>
-                Latest changes and actions
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="activity-card">
-
-
-        <div class="activity-item">
-
-            <div class="activity-icon success">
-                ✓
-            </div>
-
-            <div>
-
-                <strong>
-                    SEO title updated
-                </strong>
-
-                <p>
-                    Homepage meta title was optimized.
-                </p>
-
-            </div>
-
-            <span>
-                2 hours ago
-            </span>
-
-        </div>
-
-
-        <div class="activity-item">
-
-            <div class="activity-icon blue">
-                +
-            </div>
-
-            <div>
-
-                <strong>
-                    New keyword added
-                </strong>
-
-                <p>
-                    "SEO Expert Bangladesh"
-                </p>
-
-            </div>
-
-            <span>
-                5 hours ago
-            </span>
-
-        </div>
-
-
-        <div class="activity-item">
-
-            <div class="activity-icon warning">
-                !
-            </div>
-
-            <div>
-
-                <strong>
-                    Core Web Vital needs review
-                </strong>
-
-                <p>
-                    INP optimization is recommended.
-                </p>
-
-            </div>
-
-            <span>
-                Yesterday
-            </span>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer class="dashboard-footer">
-
-    © 2026 Jonayed Ahmed · SEO Command Center
-
-    <span>
-        ·
-    </span>
-
-    Demo dashboard — connect secure APIs for live data.
-
-</footer>
-
-
-</div>
-
-</main>
-
-</div>
-
-
-<div
-    id="toast"
-    class="toast">
-</div>
-
-
-<script src="assets/js/dashboard.js"></script>
+    </footer>
 
 </body>
 </html>
