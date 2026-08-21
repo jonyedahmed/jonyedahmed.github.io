@@ -96,15 +96,12 @@
         .client-info strong { display: block; font-size: 0.95rem; }
         .client-info span { font-size: 0.85rem; color: var(--text-muted); }
         
-        /* CTA SECTION & FORM */
+        /* CTA SECTION */
         .cta-section { background: var(--primary); border-radius: 16px; padding: 4rem 2rem; text-align: center; margin: 4rem 0; }
         .cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; color: white; }
         .cta-section p { color: rgba(255, 255, 255, 0.9); font-size: 1.1rem; max-width: 500px; margin: 0 auto 2rem; }
-        .cta-form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
-        .cta-form input, .cta-form textarea { width: 100%; padding: 0.85rem 1rem; border: none; border-radius: 8px; background: rgba(255, 255, 255, 0.95); color: #0f172a; font-size: 0.95rem; outline: none; font-family: inherit; }
-        .cta-form textarea { min-height: 100px; resize: vertical; }
-        .cta-form button { background: #0f172a; color: white; border: none; border-radius: 8px; padding: 0.85rem 1.5rem; font-weight: 600; font-size: 1rem; cursor: pointer; transition: background 0.2s ease, transform 0.2s ease; }
-        .cta-form button:hover { background: #1e293b; transform: translateY(-2px); }
+        .cta-section .btn { background: white; color: var(--primary); }
+        .cta-section .btn:hover { background: #f1f5f9; transform: translateY(-2px); }
         
         /* FLOATING CHAT BUBBLE */
         .chat-bubble { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; cursor: pointer; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.5); transition: transform 0.2s; z-index: 99; text-decoration: none; }
@@ -134,7 +131,6 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
-                <li><a href="#why-me">Why Me</a></li>
                 <li><a href="#results">Results</a></li>
                 <li><a href="#contact" class="btn btn-primary">Get Audit</a></li>
             </ul>
@@ -214,90 +210,12 @@
         </div>
     </section>
 
-    <!-- WHY CHOOSE ME -->
-    <section class="section" id="why-me">
-        <div class="container">
-            <div class="section-header">
-                <h2>Why Choose Me?</h2>
-                <p>I don't just promise results; I engineer them through proven frameworks.</p>
-            </div>
-            <div class="grid-3">
-                <div class="feature-card" style="text-align: center;">
-                    <div class="feature-icon" style="margin: 0 auto 1.5rem;">📊</div>
-                    <h3>Data-Driven Strategy</h3>
-                    <p>Every decision is backed by deep analytics and search data, ensuring maximum ROI.</p>
-                </div>
-                <div class="feature-card" style="text-align: center;">
-                    <div class="feature-icon" style="margin: 0 auto 1.5rem;">🛡️</div>
-                    <h3>White-Hat Techniques</h3>
-                    <p>Strict adherence to Google Webmaster Guidelines. Safe, sustainable, and long-term growth.</p>
-                </div>
-                <div class="feature-card" style="text-align: center;">
-                    <div class="feature-icon" style="margin: 0 auto 1.5rem;">📝</div>
-                    <h3>Transparent Reporting</h3>
-                    <p>Access to live dashboards. See exactly what I am doing and how it impacts your bottom line.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section class="section testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>What Clients Say</h2>
-                <p>Trusted by businesses across the globe.</p>
-            </div>
-            <div class="grid-3">
-                <div class="testimonial-card">
-                    <p>"Jonayed transformed our online presence. Our organic traffic doubled within three months. Highly recommended!"</p>
-                    <div class="client-info">
-                        <div class="client-avatar">R</div>
-                        <div>
-                            <strong>Rakib Hasan</strong>
-                            <span>CEO, Creatus Computer</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <p>"The level of transparency and the live dashboard feature is a game-changer. Finally, an SEO who actually communicates."</p>
-                    <div class="client-info">
-                        <div class="client-avatar">S</div>
-                        <div>
-                            <strong>Sumaiya Akter</strong>
-                            <span>Founder, Trendtrek Digital</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <p>"Technical SEO was a nightmare for us until Jonayed stepped in. Site speed is up, and we are ranking on page 1."</p>
-                    <div class="client-info">
-                        <div class="client-avatar">A</div>
-                        <div>
-                            <strong>Anik Rahman</strong>
-                            <span>Director, AR Plumbing</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- CTA SECTION -->
     <section class="container" id="contact">
         <div class="cta-section">
             <h2>Ready to Grow Your Organic Traffic?</h2>
             <p>Get a free comprehensive SEO audit. Find out exactly what's holding your website back from ranking #1.</p>
-            <form class="cta-form" action="https://formsubmit.co/hello@jonayed.com" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Best Email Address" required>
-                <input type="text" name="website" placeholder="Your Website URL (e.g., https://yoursite.com)">
-                <textarea name="message" placeholder="Tell me briefly about your SEO goals..." required></textarea>
-                <input type="hidden" name="_subject" value="New SEO Audit Request from Landing Page!">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_captcha" value="false">
-                <button type="submit">Request Your Free Audit →</button>
-            </form>
+            <a href="mailto:jonyedahmed420@gmail.com" class="btn">Request Your Free Audit</a>
         </div>
     </section>
 
@@ -309,7 +227,7 @@
     </footer>
 
     <!-- Floating WhatsApp/Chat Button -->
-    <a href="mailto:hello@jonayed.com" class="chat-bubble" title="Chat with me">💬</a>
+    <a href="mailto:jonyedahmed420@gmail.com" class="chat-bubble" title="Chat with me">💬</a>
 
 </body>
 </html>
