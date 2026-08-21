@@ -1,859 +1,1271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jonayed Ahmed | SEO Expert & Digital Marketing Specialist in Bangladesh</title>
-    <meta name="description" content="SEO Expert specializing in Technical SEO, Keyword Research, and On-Page Optimization. Helping businesses rank higher on Google and increase organic traffic. Based in Dhaka.">
-    <meta name="keywords" content="SEO Expert, Digital Marketer, Technical SEO, On-Page SEO, Keyword Research, Local SEO, Bangladesh">
-    <meta name="author" content="Jonayed Ahmed">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Jonayed Ahmed | SEO Expert & Digital Marketing Specialist">
-    <meta property="og:description" content="SEO expert helping businesses improve Google rankings and organic traffic through proven strategies.">
-    <meta property="og:url" content="https://jonyedahmed420-rgb.github.io">
-    <meta property="og:image" content="https://jonyedahmed420-rgb.github.io/og-image.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Jonayed Ahmed | SEO Expert">
-    <meta name="twitter:description" content="SEO expert helping businesses improve Google rankings and organic traffic.">
-    
-    <!-- Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Jonayed Ahmed",
-      "title": "SEO Expert & Digital Marketing Specialist",
-      "description": "SEO expert specializing in Technical SEO, On-Page Optimization, and Keyword Research",
-      "url": "https://jonyedahmed420-rgb.github.io",
-      "email": "jonyedahmed420@email.com",
-      "sameAs": ["https://github.com/jonyedahmed420-rgb"],
-      "image": "https://jonyedahmed420-rgb.github.io/profile.jpg",
-      "jobTitle": "SEO Executive & Digital Marketer",
-      "areaServed": "BD",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Dhaka",
-        "addressCountry": "BD"
-      }
-    }
-    </script>
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Jonayed Ahmed SEO Services",
-      "description": "SEO and digital marketing services specializing in technical SEO and organic growth",
-      "email": "jonyedahmed420@email.com",
-      "areaServed": ["BD", "Global"],
-      "serviceType": ["SEO Services", "Technical SEO", "On-Page SEO", "Keyword Research"]
-    }
-    </script>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+<meta charset="UTF-8">
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: #f8fafc;
-            color: #1e293b;
-            line-height: 1.6;
-        }
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-        /* Header */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: #0f172a;
-            padding: 16px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
+<meta name="robots"
+      content="noindex,nofollow">
 
-        .logo {
-            color: #38bdf8;
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
+<title>SEO Dashboard | Jonayed Ahmed</title>
 
-        nav {
-            display: flex;
-            gap: 30px;
-        }
+<link rel="stylesheet"
+      href="assets/css/dashboard.css">
 
-        nav a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        nav a:hover,
-        nav a:focus {
-            color: #38bdf8;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #0284c7;
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0284c7 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            z-index: 1;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-size: 56px;
-            margin-bottom: 20px;
-            font-weight: 800;
-            letter-spacing: -1.5px;
-            line-height: 1.2;
-        }
-
-        .hero h1 span {
-            color: #fbbf24;
-            display: block;
-            font-size: 48px;
-            margin-top: 10px;
-        }
-
-        .hero h2 {
-            font-size: 24px;
-            color: #cbd5e1;
-            margin-bottom: 24px;
-            font-weight: 500;
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: #e2e8f0;
-            max-width: 700px;
-            margin: 0 auto 32px;
-            line-height: 1.7;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 14px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            background: #0284c7;
-            color: white;
-            transition: all 0.3s ease;
-            border: 2px solid #0284c7;
-            cursor: pointer;
-        }
-
-        .btn:hover,
-        .btn:focus {
-            background: #0369a1;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(2, 132, 199, 0.3);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: white;
-            border-color: white;
-        }
-
-        .btn-outline:hover,
-        .btn-outline:focus {
-            background: white;
-            color: #0284c7;
-        }
-
-        /* Sections */
-        section {
-            padding: 80px 8%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 42px;
-            color: #0f172a;
-            margin-bottom: 16px;
-            font-weight: 800;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 18px;
-            color: #64748b;
-            margin-bottom: 50px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* About Section */
-        .about {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 18px;
-            color: #475569;
-            line-height: 1.8;
-        }
-
-        .about p {
-            margin-bottom: 24px;
-        }
-
-        .highlight {
-            color: #0284c7;
-            font-weight: 700;
-        }
-
-        /* Stats Section */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            margin: 60px auto 0;
-            text-align: center;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 30px 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-
-        .stat-number {
-            font-size: 48px;
-            font-weight: 800;
-            color: #0284c7;
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            color: #64748b;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600;
-        }
-
-        /* Skills Grid */
-        .skills {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 20px;
-        }
-
-        .skill {
-            background: white;
-            padding: 24px;
-            text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            font-weight: 600;
-            color: #0f172a;
-            transition: all 0.3s ease;
-            border-top: 3px solid transparent;
-        }
-
-        .skill:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
-            border-top-color: #0284c7;
-        }
-
-        /* Services Section */
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 28px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .service {
-            background: white;
-            padding: 32px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            border-left: 4px solid #0284c7;
-        }
-
-        .service:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 16px 32px rgba(0,0,0,0.12);
-        }
-
-        .service h3 {
-            color: #0284c7;
-            margin-bottom: 14px;
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        .service p {
-            color: #64748b;
-            line-height: 1.7;
-            font-size: 15px;
-        }
-
-        /* Process Section */
-        .process {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
-        }
-
-        .process-step {
-            text-align: center;
-            position: relative;
-        }
-
-        .process-step::before {
-            content: attr(data-step);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #0284c7, #0369a1);
-            color: white;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            font-weight: 700;
-            font-size: 24px;
-        }
-
-        .process-step h3 {
-            color: #0f172a;
-            margin-bottom: 12px;
-            font-size: 18px;
-            font-weight: 700;
-        }
-
-        .process-step p {
-            color: #64748b;
-            line-height: 1.6;
-            font-size: 15px;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 28px;
-        }
-
-        .testimonial {
-            background: white;
-            padding: 28px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-
-        .stars {
-            color: #fbbf24;
-            font-size: 14px;
-            margin-bottom: 12px;
-        }
-
-        .testimonial p {
-            color: #475569;
-            margin-bottom: 16px;
-            line-height: 1.7;
-            font-size: 15px;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            color: #0f172a;
-            font-weight: 700;
-            font-size: 15px;
-        }
-
-        .testimonial-role {
-            color: #64748b;
-            font-size: 13px;
-            margin-top: 4px;
-        }
-
-        /* Tools Section */
-        .tools {
-            background: #f1f5f9;
-        }
-
-        /* Certifications Section */
-        .certifications {
-            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
-        }
-
-        .cert-list {
-            max-width: 800px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .cert-item {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            border-top: 3px solid #0284c7;
-        }
-
-        .cert-item h4 {
-            color: #0f172a;
-            font-size: 15px;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-
-        .cert-item p {
-            color: #64748b;
-            font-size: 13px;
-        }
-
-        /* Experience Section */
-        .experience {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .experience-item {
-            background: white;
-            padding: 32px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            margin-bottom: 24px;
-            border-left: 5px solid #0284c7;
-        }
-
-        .experience-item h3 {
-            color: #0284c7;
-            margin-bottom: 8px;
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        .experience-meta {
-            color: #64748b;
-            font-size: 14px;
-            margin-bottom: 12px;
-        }
-
-        .experience-item p {
-            color: #475569;
-            line-height: 1.7;
-        }
-
-        /* Contact Section */
-        .contact {
-            text-align: center;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-        }
-
-        .contact .section-title {
-            color: white;
-            margin-bottom: 32px;
-        }
-
-        .contact p {
-            margin: 12px 0;
-            color: #cbd5e1;
-            font-size: 16px;
-        }
-
-        .email-link {
-            color: #fbbf24;
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        .email-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 24px;
-            background: #020617;
-            color: #64748b;
-            font-size: 14px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 16px;
-            }
-
-            nav {
-                gap: 16px;
-                font-size: 13px;
-            }
-
-            section {
-                padding: 60px 5%;
-            }
-
-            .hero h1 {
-                font-size: 42px;
-            }
-
-            .hero h1 span {
-                font-size: 36px;
-            }
-
-            .hero h2 {
-                font-size: 20px;
-            }
-
-            .section-title {
-                font-size: 32px;
-            }
-
-            .buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">Jonayed Ahmed</div>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#process">How It Works</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#contact">Contact</a>
+<div class="app">
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-brand">
+
+        <div class="brand-logo small">
+            JA
+        </div>
+
+        <div>
+            <strong>SEO Command</strong>
+            <span>Jonayed Ahmed</span>
+        </div>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <div class="nav-label">
+            MAIN
+        </div>
+
+        <a href="index.html"
+           class="nav-link active">
+
+            <span class="nav-icon">▦</span>
+
+            <span>Dashboard</span>
+
+        </a>
+
+
+        <div class="nav-label">
+            SEO MANAGEMENT
+        </div>
+
+
+        <a href="seo/index.html"
+           class="nav-link">
+
+            <span class="nav-icon">⌁</span>
+
+            <span>SEO Overview</span>
+
+        </a>
+
+
+        <a href="seo/meta.html"
+           class="nav-link">
+
+            <span class="nav-icon">✎</span>
+
+            <span>Meta SEO</span>
+
+        </a>
+
+
+        <a href="seo/keywords.html"
+           class="nav-link">
+
+            <span class="nav-icon">⌕</span>
+
+            <span>Keywords</span>
+
+        </a>
+
+
+        <a href="seo/schema.html"
+           class="nav-link">
+
+            <span class="nav-icon">{ }</span>
+
+            <span>Schema</span>
+
+        </a>
+
+
+        <a href="seo/social.html"
+           class="nav-link">
+
+            <span class="nav-icon">◈</span>
+
+            <span>Social SEO</span>
+
+        </a>
+
+
+        <div class="nav-label">
+            TECHNICAL SEO
+        </div>
+
+
+        <a href="technical/index.html"
+           class="nav-link">
+
+            <span class="nav-icon">✓</span>
+
+            <span>Technical SEO</span>
+
+        </a>
+
+
+        <a href="technical/sitemap.html"
+           class="nav-link">
+
+            <span class="nav-icon">▤</span>
+
+            <span>Sitemap</span>
+
+        </a>
+
+
+        <a href="technical/robots.html"
+           class="nav-link">
+
+            <span class="nav-icon">◉</span>
+
+            <span>Robots.txt</span>
+
+        </a>
+
+
+        <a href="technical/redirects.html"
+           class="nav-link">
+
+            <span class="nav-icon">↪</span>
+
+            <span>Redirects</span>
+
+        </a>
+
+
+        <div class="nav-label">
+            BUSINESS
+        </div>
+
+
+        <a href="projects/index.html"
+           class="nav-link">
+
+            <span class="nav-icon">▣</span>
+
+            <span>Projects & Clients</span>
+
+        </a>
+
+
+        <a href="analytics/index.html"
+           class="nav-link">
+
+            <span class="nav-icon">◔</span>
+
+            <span>Analytics</span>
+
+        </a>
+
+
+        <a href="backlinks/index.html"
+           class="nav-link">
+
+            <span class="nav-icon">↗</span>
+
+            <span>Backlinks</span>
+
+        </a>
+
+
+        <a href="reports/index.html"
+           class="nav-link">
+
+            <span class="nav-icon">▤</span>
+
+            <span>Reports</span>
+
+        </a>
+
+
+        <div class="nav-label">
+            ACCOUNT
+        </div>
+
+
+        <a href="profile/index.html"
+           class="nav-link">
+
+            <span class="nav-icon">●</span>
+
+            <span>Profile</span>
+
+        </a>
+
+
+        <a href="settings/index.html"
+           class="nav-link">
+
+            <span class="nav-icon">⚙</span>
+
+            <span>Settings</span>
+
+        </a>
+
     </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <div class="mini-profile">
+
+            <div class="avatar">
+                JA
+            </div>
+
+            <div>
+                <strong>Jonayed Ahmed</strong>
+                <span>SEO Expert</span>
+            </div>
+
+        </div>
+
+        <button
+            class="logout-btn"
+            id="logoutBtn">
+
+            ⇥ Logout
+
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+
+<!-- TOPBAR -->
+
+<header class="topbar">
+
+    <div class="topbar-left">
+
+        <button
+            class="mobile-menu"
+            id="menuBtn">
+
+            ☰
+
+        </button>
+
+        <div>
+
+            <h1>
+                SEO Dashboard
+            </h1>
+
+            <p>
+                Performance & growth command center
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="topbar-actions">
+
+        <button
+            class="top-button"
+            id="siteButton">
+
+            ↗
+            <span>View Website</span>
+
+        </button>
+
+
+        <button
+            class="top-icon"
+            id="themeBtn"
+            title="Toggle theme">
+
+            ◐
+
+        </button>
+
+
+        <button
+            class="top-icon"
+            id="refreshBtn"
+            title="Refresh dashboard">
+
+            ↻
+
+        </button>
+
+
+        <div class="user-menu">
+
+            <div class="avatar">
+                JA
+            </div>
+
+            <div class="user-info">
+
+                <strong>
+                    Jonayed Ahmed
+                </strong>
+
+                <span>
+                    SEO Expert
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </header>
 
-<!-- Hero Section -->
-<section class="hero" id="home">
-    <div class="hero-content">
-        <h1>Improve Your Google Rankings & Drive Organic Traffic</h1>
-        <h2>SEO Expert specializing in Technical SEO & Keyword Strategy</h2>
-        <p>I help businesses rank higher on Google through data-driven SEO strategies, technical optimization, and content that converts. Let's grow your organic visibility.</p>
-        <div class="buttons">
-            <a href="#contact" class="btn">Let's Discuss Your Project</a>
-            <a href="#services" class="btn btn-outline">Explore My Services</a>
+
+<!-- CONTENT -->
+
+<div class="content">
+
+
+<!-- WELCOME -->
+
+<section class="welcome">
+
+    <div>
+
+        <div class="breadcrumb">
+            Dashboard / Overview
         </div>
+
+        <h2>
+            Good morning, Jonayed 👋
+        </h2>
+
+        <p>
+            Here's what's happening with your SEO performance.
+        </p>
+
     </div>
+
+
+    <div class="welcome-actions">
+
+        <button
+            class="secondary-button"
+            id="connectButton">
+
+            + Connect Data
+
+        </button>
+
+        <a
+            href="seo/meta.html"
+            class="primary-button">
+
+            + Add SEO Data
+
+        </a>
+
+    </div>
+
 </section>
 
-<!-- About Section -->
-<section id="about">
-    <h2 class="section-title">About Me</h2>
-    <div class="about">
-        <p>I'm an <span class="highlight">SEO Executive and Digital Marketer</span> with 2+ years of experience helping businesses achieve sustainable organic growth through strategic search engine optimization.</p>
-        <p>My expertise spans <span class="highlight">Technical SEO</span>, <span class="highlight">On-Page Optimization</span>, <span class="highlight">Keyword Research</span>, and <span class="highlight">Content Strategy</span>—all focused on delivering measurable results.</p>
+
+<!-- ================= STATS ================= -->
+
+<section class="stats-grid">
+
+
+<div class="stat-card">
+
+    <div class="stat-header">
+
+        <span>
+            Organic Clicks
+        </span>
+
+        <div class="stat-icon blue">
+            ↗
+        </div>
+
     </div>
-    
-    <div class="stats">
-        <div class="stat-card">
-            <div class="stat-number">2+</div>
-            <div class="stat-label">Years Experience</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">50+</div>
-            <div class="stat-label">Clients Served</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">300%</div>
-            <div class="stat-label">Avg. Traffic Growth</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">100+</div>
-            <div class="stat-label">Keywords Ranking</div>
-        </div>
+
+    <strong class="stat-number">
+        1,284
+    </strong>
+
+    <div class="stat-change positive">
+        ↑ 18.4%
+        <span>vs last month</span>
     </div>
+
+</div>
+
+
+<div class="stat-card">
+
+    <div class="stat-header">
+
+        <span>
+            Impressions
+        </span>
+
+        <div class="stat-icon purple">
+            ◉
+        </div>
+
+    </div>
+
+    <strong class="stat-number">
+        48.7K
+    </strong>
+
+    <div class="stat-change positive">
+        ↑ 12.7%
+        <span>vs last month</span>
+    </div>
+
+</div>
+
+
+<div class="stat-card">
+
+    <div class="stat-header">
+
+        <span>
+            Average Position
+        </span>
+
+        <div class="stat-icon orange">
+            #
+        </div>
+
+    </div>
+
+    <strong class="stat-number">
+        8.6
+    </strong>
+
+    <div class="stat-change positive">
+        ↑ 2.1
+        <span>positions</span>
+    </div>
+
+</div>
+
+
+<div class="stat-card">
+
+    <div class="stat-header">
+
+        <span>
+            Organic CTR
+        </span>
+
+        <div class="stat-icon green">
+            %
+        </div>
+
+    </div>
+
+    <strong class="stat-number">
+        4.92%
+    </strong>
+
+    <div class="stat-change positive">
+        ↑ 0.8%
+        <span>vs last month</span>
+    </div>
+
+</div>
+
+
 </section>
 
-<!-- Skills Section -->
-<section>
-    <h2 class="section-title">Core Skills & Expertise</h2>
-    <div class="skills">
-        <div class="skill">On-Page SEO</div>
-        <div class="skill">Technical SEO</div>
-        <div class="skill">Keyword Research</div>
-        <div class="skill">Local SEO</div>
-        <div class="skill">Content Optimization</div>
-        <div class="skill">Schema Markup</div>
-        <div class="skill">WordPress SEO</div>
-        <div class="skill">Google Analytics 4</div>
-        <div class="skill">GSC Analysis</div>
-        <div class="skill">Link Building</div>
-        <div class="skill">Competitive Analysis</div>
-        <div class="skill">SEO Reporting</div>
+
+<!-- ================= PERFORMANCE ================= -->
+
+<section class="dashboard-grid two-column">
+
+
+<div class="dashboard-card">
+
+    <div class="card-header">
+
+        <div>
+
+            <h3>
+                Search Performance
+            </h3>
+
+            <p>
+                Organic search clicks
+            </p>
+
+        </div>
+
+        <select class="select-control">
+
+            <option>
+                Last 28 days
+            </option>
+
+            <option>
+                Last 7 days
+            </option>
+
+            <option>
+                Last 3 months
+            </option>
+
+        </select>
+
     </div>
+
+
+    <div class="chart">
+
+        <div class="chart-grid"></div>
+
+        <div class="bars">
+
+            <i style="height:32%"></i>
+            <i style="height:43%"></i>
+            <i style="height:38%"></i>
+            <i style="height:51%"></i>
+            <i style="height:48%"></i>
+            <i style="height:65%"></i>
+            <i style="height:58%"></i>
+            <i style="height:72%"></i>
+            <i style="height:61%"></i>
+            <i style="height:79%"></i>
+            <i style="height:69%"></i>
+            <i style="height:85%"></i>
+            <i style="height:77%"></i>
+            <i style="height:93%"></i>
+
+        </div>
+
+        <div class="chart-labels">
+
+            <span>Jul 24</span>
+            <span>Jul 31</span>
+            <span>Aug 07</span>
+            <span>Aug 20</span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- SEO HEALTH -->
+
+<div class="dashboard-card">
+
+    <div class="card-header">
+
+        <div>
+
+            <h3>
+                SEO Health
+            </h3>
+
+            <p>
+                Overall website optimization
+            </p>
+
+        </div>
+
+        <span class="status-badge success">
+            Excellent
+        </span>
+
+    </div>
+
+
+    <div class="health-score">
+
+        <div class="score-circle">
+            <strong>92</strong>
+            <span>/100</span>
+        </div>
+
+        <div>
+
+            <strong>
+                Great SEO health
+            </strong>
+
+            <p>
+                Your website is well optimized.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="progress-row">
+
+        <div>
+            <span>
+                Technical SEO
+            </span>
+
+            <strong>95%</strong>
+        </div>
+
+        <div class="progress">
+            <i style="width:95%"></i>
+        </div>
+
+    </div>
+
+
+    <div class="progress-row">
+
+        <div>
+            <span>
+                On-Page SEO
+            </span>
+
+            <strong>91%</strong>
+        </div>
+
+        <div class="progress">
+            <i style="width:91%"></i>
+        </div>
+
+    </div>
+
+
+    <div class="progress-row">
+
+        <div>
+            <span>
+                Content SEO
+            </span>
+
+            <strong>89%</strong>
+        </div>
+
+        <div class="progress">
+            <i style="width:89%"></i>
+        </div>
+
+    </div>
+
+
+    <a
+        href="seo/index.html"
+        class="card-link">
+
+        View complete SEO analysis →
+        
+    </a>
+
+</div>
+
+
 </section>
 
-<!-- Services Section -->
-<section id="services">
-    <h2 class="section-title">My Services</h2>
-    <p class="section-subtitle">I offer comprehensive SEO solutions tailored to your business goals and competitive landscape.</p>
-    
-    <div class="services">
-        <div class="service">
-            <h3>Technical SEO Audit</h3>
-            <p>Identify and fix crawlability issues, indexation problems, site structure gaps, and other technical barriers preventing your site from ranking.</p>
+
+<!-- ================= SEO QUICK ACTIONS ================= -->
+
+<section class="section-block">
+
+    <div class="section-heading">
+
+        <div>
+
+            <h3>
+                SEO Management
+            </h3>
+
+            <p>
+                Quickly manage your website SEO settings.
+            </p>
+
         </div>
-        <div class="service">
-            <h3>On-Page Optimization</h3>
-            <p>Strategic optimization of titles, meta descriptions, headings, content, internal links, and schema markup for maximum search visibility.</p>
-        </div>
-        <div class="service">
-            <h3>Keyword Research & Strategy</h3>
-            <p>Uncover high-intent keywords your audience is searching for, prioritize opportunities, and build a data-driven SEO roadmap.</p>
-        </div>
-        <div class="service">
-            <h3>Content Strategy & Optimization</h3>
-            <p>Develop and optimize content that ranks, engages, and converts—backed by keyword research and competitive analysis.</p>
-        </div>
-        <div class="service">
-            <h3>Local SEO</h3>
-            <p>Boost visibility in local search results, optimize Google Business Profile, build citations, and capture location-based customers.</p>
-        </div>
-        <div class="service">
-            <h3>SEO Consulting & Strategy</h3>
-            <p>Strategic guidance on SEO roadmaps, prioritization, and implementation—helping you build a sustainable organic growth engine.</p>
-        </div>
+
     </div>
+
+
+    <div class="quick-grid">
+
+
+        <a href="seo/meta.html"
+           class="quick-card">
+
+            <div class="quick-icon blue">
+                ✎
+            </div>
+
+            <div>
+
+                <strong>
+                    Meta SEO
+                </strong>
+
+                <p>
+                    Edit titles & descriptions
+                </p>
+
+            </div>
+
+            <span>
+                →
+            </span>
+
+        </a>
+
+
+        <a href="seo/keywords.html"
+           class="quick-card">
+
+            <div class="quick-icon purple">
+                ⌕
+            </div>
+
+            <div>
+
+                <strong>
+                    Keywords
+                </strong>
+
+                <p>
+                    Manage target keywords
+                </p>
+
+            </div>
+
+            <span>
+                →
+            </span>
+
+        </a>
+
+
+        <a href="seo/schema.html"
+           class="quick-card">
+
+            <div class="quick-icon orange">
+                { }
+            </div>
+
+            <div>
+
+                <strong>
+                    Schema
+                </strong>
+
+                <p>
+                    Manage structured data
+                </p>
+
+            </div>
+
+            <span>
+                →
+            </span>
+
+        </a>
+
+
+        <a href="technical/index.html"
+           class="quick-card">
+
+            <div class="quick-icon green">
+                ✓
+            </div>
+
+            <div>
+
+                <strong>
+                    Technical SEO
+                </strong>
+
+                <p>
+                    Check technical issues
+                </p>
+
+            </div>
+
+            <span>
+                →
+            </span>
+
+        </a>
+
+
+    </div>
+
 </section>
 
-<!-- Process Section -->
-<section id="process">
-    <h2 class="section-title">How I Work</h2>
-    <p class="section-subtitle">A proven, transparent process that delivers measurable SEO results.</p>
-    
-    <div class="process-steps">
-        <div class="process-step" data-step="1">
-            <h3>Audit & Analysis</h3>
-            <p>Deep dive into your site's current SEO performance, technical health, and competitive landscape.</p>
+
+<!-- ================= KEYWORDS + PROJECTS ================= -->
+
+<section class="dashboard-grid two-column">
+
+
+<div class="dashboard-card">
+
+    <div class="card-header">
+
+        <div>
+
+            <h3>
+                Keyword Rankings
+            </h3>
+
+            <p>
+                Top ranking opportunities
+            </p>
+
         </div>
-        <div class="process-step" data-step="2">
-            <h3>Strategy & Planning</h3>
-            <p>Develop a prioritized SEO roadmap with realistic timelines and measurable KPIs.</p>
-        </div>
-        <div class="process-step" data-step="3">
-            <h3>Implementation</h3>
-            <p>Execute technical fixes, content optimization, and strategy recommendations with transparency.</p>
-        </div>
-        <div class="process-step" data-step="4">
-            <h3>Monitoring & Reporting</h3>
-            <p>Track rankings, traffic, and business outcomes with monthly reports and strategic adjustments.</p>
-        </div>
+
+        <a
+            href="seo/keywords.html"
+            class="small-link">
+
+            View all
+
+        </a>
+
     </div>
+
+
+    <div class="table-wrapper">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Keyword
+                    </th>
+
+                    <th>
+                        Position
+                    </th>
+
+                    <th>
+                        Change
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+                        <strong>
+                            SEO Expert Bangladesh
+                        </strong>
+                    </td>
+
+                    <td>
+                        #3
+                    </td>
+
+                    <td class="positive">
+                        ↑ 4
+                    </td>
+
+                    <td>
+                        <span class="status-badge success">
+                            Improving
+                        </span>
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Technical SEO Expert
+                    </td>
+
+                    <td>
+                        #6
+                    </td>
+
+                    <td class="positive">
+                        ↑ 2
+                    </td>
+
+                    <td>
+                        <span class="status-badge info">
+                            Stable
+                        </span>
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        SEO Consultant Bangladesh
+                    </td>
+
+                    <td>
+                        #9
+                    </td>
+
+                    <td class="positive">
+                        ↑ 6
+                    </td>
+
+                    <td>
+                        <span class="status-badge success">
+                            Improving
+                        </span>
+                    </td>
+
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        Keyword Research Service
+                    </td>
+
+                    <td>
+                        #14
+                    </td>
+
+                    <td class="positive">
+                        ↑ 3
+                    </td>
+
+                    <td>
+                        <span class="status-badge warning">
+                            Opportunity
+                        </span>
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<!-- PROJECTS -->
+
+<div class="dashboard-card">
+
+    <div class="card-header">
+
+        <div>
+
+            <h3>
+                Active Projects
+            </h3>
+
+            <p>
+                Current SEO clients
+            </p>
+
+        </div>
+
+        <a
+            href="projects/index.html"
+            class="small-link">
+
+            View all
+
+        </a>
+
+    </div>
+
+
+    <div class="project-list">
+
+
+        <div class="project-item">
+
+            <div class="project-logo">
+                CC
+            </div>
+
+            <div>
+
+                <strong>
+                    Creatus Computer
+                </strong>
+
+                <p>
+                    E-commerce SEO
+                </p>
+
+            </div>
+
+            <span class="status-badge success">
+                Active
+            </span>
+
+        </div>
+
+
+        <div class="project-item">
+
+            <div class="project-logo">
+                TT
+            </div>
+
+            <div>
+
+                <strong>
+                    Trendtrek Digital
+                </strong>
+
+                <p>
+                    SEO & Content
+                </p>
+
+            </div>
+
+            <span class="status-badge success">
+                Active
+            </span>
+
+        </div>
+
+
+        <div class="project-item">
+
+            <div class="project-logo">
+                SF
+            </div>
+
+            <div>
+
+                <strong>
+                    SIHA Bag Factory
+                </strong>
+
+                <p>
+                    E-commerce SEO
+                </p>
+
+            </div>
+
+            <span class="status-badge warning">
+                Review
+            </span>
+
+        </div>
+
+
+        <div class="project-item">
+
+            <div class="project-logo">
+                AR
+            </div>
+
+            <div>
+
+                <strong>
+                    AR Plumbing Singapore
+                </strong>
+
+                <p>
+                    Local SEO
+                </p>
+
+            </div>
+
+            <span class="status-badge success">
+                Active
+            </span>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
 </section>
 
-<!-- Testimonials Section -->
-<section id="testimonials">
-    <h2 class="section-title">What Clients Say</h2>
-    <p class="section-subtitle">Real results from real businesses I've helped grow.</p>
-    
-    <div class="testimonial-grid">
-        <div class="testimonial">
-            <div class="stars">★★★★★</div>
-            <p>"Jonayed transformed our SEO strategy completely. Within 6 months, our organic traffic increased by 250%. Professional, transparent, and results-driven."</p>
-            <div class="testimonial-author">Rahman Hassan</div>
-            <div class="testimonial-role">E-Commerce Business Owner</div>
+
+<!-- ================= RECENT ACTIVITY ================= -->
+
+<section class="section-block">
+
+    <div class="section-heading">
+
+        <div>
+
+            <h3>
+                Recent SEO Activity
+            </h3>
+
+            <p>
+                Latest changes and actions
+            </p>
+
         </div>
-        <div class="testimonial">
-            <div class="stars">★★★★★</div>
-            <p>"His technical SEO expertise fixed issues we didn't even know existed. Rankings improved, crawl efficiency improved, and our visibility increased significantly."</p>
-            <div class="testimonial-author">Fatima Khan</div>
-            <div class="testimonial-role">Marketing Manager</div>
-        </div>
-        <div class="testimonial">
-            <div class="stars">★★★★★</div>
-            <p>"Great strategic thinking and execution. He doesn't just implement—he explains the 'why' behind every recommendation. Highly recommended for serious SEO work."</p>
-            <div class="testimonial-author">Ahmed Ali</div>
-            <div class="testimonial-role">SaaS Founder</div>
-        </div>
+
     </div>
+
+
+    <div class="activity-card">
+
+
+        <div class="activity-item">
+
+            <div class="activity-icon success">
+                ✓
+            </div>
+
+            <div>
+
+                <strong>
+                    SEO title updated
+                </strong>
+
+                <p>
+                    Homepage meta title was optimized.
+                </p>
+
+            </div>
+
+            <span>
+                2 hours ago
+            </span>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-icon blue">
+                +
+            </div>
+
+            <div>
+
+                <strong>
+                    New keyword added
+                </strong>
+
+                <p>
+                    "SEO Expert Bangladesh"
+                </p>
+
+            </div>
+
+            <span>
+                5 hours ago
+            </span>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-icon warning">
+                !
+            </div>
+
+            <div>
+
+                <strong>
+                    Core Web Vital needs review
+                </strong>
+
+                <p>
+                    INP optimization is recommended.
+                </p>
+
+            </div>
+
+            <span>
+                Yesterday
+            </span>
+
+        </div>
+
+
+    </div>
+
 </section>
 
-<!-- Tools Section -->
-<section class="tools">
-    <h2 class="section-title">Tools & Platforms I Use</h2>
-    <p class="section-subtitle">Industry-leading tools to deliver data-driven SEO insights and optimization.</p>
-    
-    <div class="skills">
-        <div class="skill">Google Search Console</div>
-        <div class="skill">Google Analytics 4</div>
-        <div class="skill">Google Tag Manager</div>
-        <div class="skill">Ahrefs</div>
-        <div class="skill">SE Ranking</div>
-        <div class="skill">Screaming Frog</div>
-        <div class="skill">PageSpeed Insights</div>
-        <div class="skill">GTmetrix</div>
-        <div class="skill">Schema Markup Tools</div>
-        <div class="skill">Keyword Planner</div>
-        <div class="skill">SemRush</div>
-        <div class="skill">Bing Webmaster Tools</div>
-    </div>
-</section>
 
-<!-- Certifications -->
-<section class="certifications">
-    <h2 class="section-title">Certifications</h2>
-    <p class="section-subtitle">Staying current with industry best practices and latest algorithm updates.</p>
-    
-    <div class="cert-list">
-        <div class="cert-item">
-            <h4>Google Analytics Certified</h4>
-            <p>Google Analytics Certification</p>
-        </div>
-        <div class="cert-item">
-            <h4>Google Ads Certified</h4>
-            <p>Google Ads Search Certification</p>
-        </div>
-        <div class="cert-item">
-            <h4>SEO Specialist</h4>
-            <p>Advanced SEO Training</p>
-        </div>
-    </div>
-</section>
+<!-- ================= FOOTER ================= -->
 
-<!-- Experience Section -->
-<section id="experience">
-    <h2 class="section-title">Experience</h2>
-    
-    <div class="experience">
-        <div class="experience-item">
-            <h3>SEO Expert</h3>
-            <div class="experience-meta">Againsoft · May 2026 – Present</div>
-            <p>Leading SEO initiatives for diverse client portfolios, including technical audits, on-page optimization, keyword strategy, and performance monitoring. Delivering measurable organic growth for e-commerce and service-based businesses.</p>
-        </div>
-        <div class="experience-item">
-            <h3>SEO Executive</h3>
-            <div class="experience-meta">SIHA Marketing Agency · 2024 – Present</div>
-            <p>Managing end-to-end SEO campaigns for multiple clients across industries. Responsibilities include keyword research, technical SEO audits, content optimization, GSC analysis, and monthly performance reporting. Consistently delivering 200%+ organic traffic improvements.</p>
-        </div>
-        <div class="experience-item">
-            <h3>Digital Marketing & SEO Specialist</h3>
-            <div class="experience-meta">Freelance · 2023 – Present</div>
-            <p>Providing strategic SEO consulting and implementation for small to medium-sized businesses. Focus areas: technical SEO, on-page optimization, keyword strategy, and organic growth.</p>
-        </div>
-    </div>
-</section>
+<footer class="dashboard-footer">
 
-<!-- Contact Section -->
-<section class="contact" id="contact">
-    <h2 class="section-title">Let's Work Together</h2>
-    <p>Ready to improve your Google rankings and drive sustainable organic growth?</p>
-    <p>Get in touch to discuss your SEO goals and how I can help.</p>
-    <p style="margin-top: 24px;">
-        <a href="mailto:jonyedahmed420@email.com" class="email-link">jonyedahmed420@email.com</a>
-    </p>
-    <div class="buttons" style="margin-top: 32px;">
-        <a href="mailto:jonyedahmed420@email.com?subject=SEO%20Project%20Inquiry" class="btn">Send Me an Email</a>
-        <a href="https://github.com/jonyedahmed420-rgb" target="_blank" rel="noopener noreferrer" class="btn btn-outline">View My GitHub</a>
-    </div>
-</section>
+    © 2026 Jonayed Ahmed · SEO Command Center
 
-<footer>
-    © 2026 Jonayed Ahmed. All rights reserved. | SEO Expert & Digital Marketing Specialist
+    <span>
+        ·
+    </span>
+
+    Demo dashboard — connect secure APIs for live data.
+
 </footer>
+
+
+</div>
+
+</main>
+
+</div>
+
+
+<div
+    id="toast"
+    class="toast">
+</div>
+
+
+<script src="assets/js/dashboard.js"></script>
 
 </body>
 </html>
