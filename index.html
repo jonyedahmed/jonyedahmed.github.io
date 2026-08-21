@@ -18,361 +18,85 @@
             --warning: #f59e0b;
             --border: #334155;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.6;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        
         /* NAVBAR */
         nav {
-            position: sticky;
-            top: 0;
+            position: sticky; top: 0;
             background: rgba(15, 23, 42, 0.8);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
-            z-index: 100;
-            padding: 1rem 0;
+            z-index: 100; padding: 1rem 0;
         }
-
-        .nav-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-weight: 700;
-            font-size: 1.25rem;
-            text-decoration: none;
-            color: var(--text);
-        }
-
-        .brand-logo {
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--text);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-hover);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            background: var(--card);
-            border-color: var(--text-muted);
-        }
-
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+        .brand { display: flex; align-items: center; gap: 0.75rem; font-weight: 700; font-size: 1.25rem; text-decoration: none; color: var(--text); }
+        .brand-logo { width: 40px; height: 40px; background: var(--primary); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text); }
+        
+        .btn { display: inline-block; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.2s ease; border: none; cursor: pointer; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); }
+        .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+        .btn-secondary:hover { background: var(--card); border-color: var(--text-muted); }
+        
         /* HERO SECTION */
-        .hero {
-            padding: 6rem 0;
-            text-align: center;
-            position: relative;
-        }
-
+        .hero { padding: 6rem 0; text-align: center; position: relative; }
         .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
-            z-index: -1;
+            content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            width: 600px; height: 600px; background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%); z-index: -1;
         }
-
         .hero h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
+            font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem;
             background: linear-gradient(to right, #fff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
+        .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 2.5rem; }
+        .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        
         /* SECTION HEADINGS */
-        .section {
-            padding: 4rem 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
+        .section { padding: 4rem 0; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header h2 { font-size: 2.25rem; margin-bottom: 0.5rem; }
+        .section-header p { color: var(--text-muted); max-width: 500px; margin: 0 auto; }
+        
         /* STATS GRID */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .stat-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            transition: transform 0.2s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary);
-        }
-
-        .stat-number {
-            display: block;
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin: 0.5rem 0;
-            color: var(--primary);
-        }
-
-        .stat-label {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .stat-change {
-            font-size: 0.85rem;
-            color: var(--success);
-            font-weight: 600;
-        }
-
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+        .stat-card { background: var(--card); border: 1px solid var(--border); padding: 1.5rem; border-radius: 12px; text-align: center; transition: transform 0.2s; }
+        .stat-card:hover { transform: translateY(-4px); border-color: var(--primary); }
+        .stat-number { display: block; font-size: 2.5rem; font-weight: 800; margin: 0.5rem 0; color: var(--primary); }
+        .stat-label { color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        .stat-change { font-size: 0.85rem; color: var(--success); font-weight: 600; }
+        
         /* SERVICES GRID */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .service-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            padding: 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            color: var(--text);
-            transition: all 0.2s;
-        }
-
-        .service-card:hover {
-            border-color: var(--primary);
-            background: #243449;
-        }
-
-        .service-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(99, 102, 241, 0.1);
-            color: var(--primary);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-card h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.25rem;
-        }
-
-        .service-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* CASE STUDIES / PROJECTS */
-        .projects-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .project-item {
-            background: var(--card);
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .project-logo {
-            width: 50px;
-            height: 50px;
-            background: var(--border);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: var(--text);
-            flex-shrink: 0;
-        }
-
-        .project-info h4 {
-            font-size: 1.1rem;
-        }
-
-        .project-info p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .badge-success { background: rgba(16, 185, 129, 0.1); color: var(--success); }
-        .badge-warning { background: rgba(245, 158, 11, 0.1); color: var(--warning); }
-
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+        .service-card { background: var(--card); border: 1px solid var(--border); padding: 2rem; border-radius: 12px; text-decoration: none; color: var(--text); transition: all 0.2s; }
+        .service-card:hover { border-color: var(--primary); background: #243449; }
+        .service-icon { width: 50px; height: 50px; background: rgba(99, 102, 241, 0.1); color: var(--primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.5rem; }
+        .service-card h3 { margin-bottom: 0.5rem; font-size: 1.25rem; }
+        .service-card p { color: var(--text-muted); font-size: 0.95rem; }
+        
         /* CTA SECTION */
-        .cta-section {
-            background: var(--primary);
-            border-radius: 16px;
-            padding: 4rem 2rem;
-            text-align: center;
-            margin: 4rem 0;
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        .cta-section p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.1rem;
-            max-width: 500px;
-            margin: 0 auto 2rem;
-        }
-
-        .cta-section .btn {
-            background: white;
-            color: var(--primary);
-        }
-
-        .cta-section .btn:hover {
-            background: #f1f5f9;
-            transform: translateY(-2px);
-        }
-
+        .cta-section { background: var(--primary); border-radius: 16px; padding: 4rem 2rem; text-align: center; margin: 4rem 0; }
+        .cta-section h2 { font-size: 2.5rem; margin-bottom: 1rem; color: white; }
+        .cta-section p { color: rgba(255, 255, 255, 0.9); font-size: 1.1rem; max-width: 500px; margin: 0 auto 2rem; }
+        .cta-section .btn { background: white; color: var(--primary); }
+        .cta-section .btn:hover { background: #f1f5f9; transform: translateY(-2px); }
+        
         /* FOOTER */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 2rem 0;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        /* RESPONSIVE */
+        footer { border-top: 1px solid var(--border); padding: 2rem 0; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
+        
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hero h1 { font-size: 2.25rem; }
-            .projects-list { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -381,14 +105,14 @@
     <!-- NAVIGATION -->
     <nav>
         <div class="container nav-inner">
-            <a href="#" class="brand">
+            <a href="index.html" class="brand">
                 <div class="brand-logo">JA</div>
                 Jonayed Ahmed
             </a>
             <ul class="nav-links">
+                <li><a href="dashboard/index.html" target="_blank">Dashboard</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#results">Results</a></li>
-                <li><a href="#work">Case Studies</a></li>
                 <li><a href="#contact" class="btn btn-primary">Get Audit</a></li>
             </ul>
         </div>
@@ -400,11 +124,11 @@
         <p>Hi, I'm Jonayed Ahmed. I help businesses dominate search engines through data-driven technical SEO, strategic content, and authoritative link building.</p>
         <div class="hero-actions">
             <a href="#contact" class="btn btn-primary">Get Free SEO Audit</a>
-            <a href="#work" class="btn btn-secondary">View Case Studies</a>
+            <a href="dashboard/index.html" target="_blank" class="btn btn-secondary">View Dashboard</a>
         </div>
     </header>
 
-    <!-- PROVEN RESULTS (Stats Repurposed) -->
+    <!-- PROVEN RESULTS -->
     <section class="section" id="results">
         <div class="container">
             <div class="section-header">
@@ -436,7 +160,7 @@
         </div>
     </section>
 
-    <!-- SERVICES (Quick Actions Repurposed) -->
+    <!-- SERVICES -->
     <section class="section" id="services" style="background: #131c31;">
         <div class="container">
             <div class="section-header">
@@ -444,70 +168,26 @@
                 <p>Comprehensive search engine optimization tailored to your business goals.</p>
             </div>
             <div class="services-grid">
-                <a href="#" class="service-card">
+                <a href="dashboard/seo/meta.html" target="_blank" class="service-card">
                     <div class="service-icon">✎</div>
                     <h3>Meta SEO Optimization</h3>
                     <p>Crafting compelling titles and descriptions to improve click-through rates and relevancy.</p>
                 </a>
-                <a href="#" class="service-card">
+                <a href="dashboard/seo/keywords.html" target="_blank" class="service-card">
                     <div class="service-icon">⌕</div>
                     <h3>Keyword Research</h3>
                     <p>Identifying high-intent, low-competition keywords to drive targeted organic traffic.</p>
                 </a>
-                <a href="#" class="service-card">
+                <a href="dashboard/seo/schema.html" target="_blank" class="service-card">
                     <div class="service-icon">{ }</div>
                     <h3>Schema Markup</h3>
                     <p>Implementing structured data to help search engines understand your content better.</p>
                 </a>
-                <a href="#" class="service-card">
+                <a href="dashboard/technical/index.html" target="_blank" class="service-card">
                     <div class="service-icon">✓</div>
                     <h3>Technical SEO</h3>
                     <p>Fixing core web vitals, site speed, and crawlability to ensure peak performance.</p>
                 </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CASE STUDIES (Projects Repurposed) -->
-    <section class="section" id="work">
-        <div class="container">
-            <div class="section-header">
-                <h2>Active Client Success</h2>
-                <p>Businesses currently scaling their organic presence with my SEO command center.</p>
-            </div>
-            <div class="projects-list">
-                <div class="project-item">
-                    <div class="project-logo">CC</div>
-                    <div class="project-info">
-                        <h4>Creatus Computer</h4>
-                        <p>E-commerce SEO &amp; Schema</p>
-                        <span class="badge badge-success">Traffic +40%</span>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <div class="project-logo">TT</div>
-                    <div class="project-info">
-                        <h4>Trendtrek Digital</h4>
-                        <p>SEO &amp; Content Strategy</p>
-                        <span class="badge badge-success">Ranking Top 3</span>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <div class="project-logo">SF</div>
-                    <div class="project-info">
-                        <h4>SIHA Bag Factory</h4>
-                        <p>E-commerce SEO Migration</p>
-                        <span class="badge badge-warning">In Progress</span>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <div class="project-logo">AR</div>
-                    <div class="project-info">
-                        <h4>AR Plumbing Singapore</h4>
-                        <p>Local SEO &amp; Maps Ranking</p>
-                        <span class="badge badge-success">Leads +65%</span>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
