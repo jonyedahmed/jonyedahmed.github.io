@@ -1,1 +1,1 @@
-jonyedahmed.github.io
+jonyedahmed.info
